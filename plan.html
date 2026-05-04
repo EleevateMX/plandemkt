@@ -3,50 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GTAHUB · Plan de Mercadotecnia · Semana a Semana</title>
+<title>GTAHUB · Plan de Mercadotecnia 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
 <style>
-/* ============================================================
-   PALETA OFICIAL GTAHUB
-   Si los colores exactos del logo difieren, ajustar acá:
-   ============================================================ */
 :root {
-  /* Colores GTAHUB - editables en un solo lugar */
-  --gtahub-black: #0a0e1a;
-  --gtahub-dark: #0f1422;
-  --gtahub-darker: #161c2e;
-  --gtahub-blue: #1a73e8;       /* Azul principal GTAHUB */
-  --gtahub-blue-bright: #4d94ff; /* Azul brillante */
-  --gtahub-cyan: #00d4ff;        /* Acento cyan */
-  --gtahub-gold: #ffb84d;        /* Para alertas/HUBCoins */
-  --gtahub-red: #ff3b5c;         /* Crítico/criminal */
-  --gtahub-green: #00e676;       /* Éxito/legal */
-
-  /* Sistema */
-  --bg: var(--gtahub-black);
-  --bg-2: var(--gtahub-dark);
-  --bg-3: var(--gtahub-darker);
-  --ink: #f5f7fa;
-  --ink-dim: #a0a8b8;
-  --ink-mute: #5a6275;
-  --accent: var(--gtahub-cyan);
-  --accent-blue: var(--gtahub-blue-bright);
-  --accent-gold: var(--gtahub-gold);
-  --line: rgba(245, 247, 250, 0.08);
-  --line-strong: rgba(245, 247, 250, 0.18);
-
-  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.85' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.96 0 0 0 0 0.97 0 0 0 0 0.98 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --bg: #0a0a0c;
+  --bg-2: #111114;
+  --bg-3: #1a1a1f;
+  --ink: #f5f3ee;
+  --ink-dim: #a8a59f;
+  --ink-mute: #6b685f;
+  --accent: #d4ff3a;
+  --accent-2: #ff3a6b;
+  --accent-3: #3aa4ff;
+  --gold: #c9a86a;
+  --line: rgba(245, 243, 238, 0.08);
+  --line-strong: rgba(245, 243, 238, 0.18);
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.85' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.96 0 0 0 0 0.95 0 0 0 0 0.93 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 html { scroll-behavior: smooth; }
 
 body {
   background: var(--bg);
   color: var(--ink);
   font-family: 'Fraunces', Georgia, serif;
+  font-weight: 400;
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
@@ -59,7 +45,7 @@ body::before {
   background-image: var(--grain);
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.5;
+  opacity: 0.4;
   mix-blend-mode: overlay;
 }
 
@@ -72,8 +58,8 @@ body::before {
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 16px 40px;
-  background: rgba(10, 14, 26, 0.85);
+  padding: 18px 40px;
+  background: rgba(10, 10, 12, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--line);
@@ -83,31 +69,33 @@ body::before {
 }
 
 .nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.nav-logo img {
-  height: 32px;
-  width: auto;
-  filter: drop-shadow(0 0 12px rgba(0, 212, 255, 0.4));
-}
-
-.nav-logo-fallback {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 24px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   color: var(--ink);
-  background: linear-gradient(90deg, var(--accent-blue), var(--accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-logo::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.3); }
 }
 
 .nav-links {
   display: flex;
-  gap: 28px;
+  gap: 32px;
   list-style: none;
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
@@ -132,7 +120,6 @@ body::before {
   height: 1px;
   background: var(--accent);
   transition: width 0.3s;
-  box-shadow: 0 0 8px var(--accent);
 }
 
 .nav-links a:hover { color: var(--ink); }
@@ -150,9 +137,10 @@ body::before {
   min-height: 100vh;
   padding: 140px 40px 80px;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
   overflow: hidden;
 }
 
@@ -160,62 +148,12 @@ body::before {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 80% 10%, rgba(0, 212, 255, 0.12) 0%, transparent 45%),
-    radial-gradient(circle at 10% 90%, rgba(26, 115, 232, 0.10) 0%, transparent 45%),
-    linear-gradient(180deg, transparent 0%, rgba(0, 212, 255, 0.02) 100%);
+    radial-gradient(circle at 80% 20%, rgba(212, 255, 58, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 20% 80%, rgba(255, 58, 107, 0.06) 0%, transparent 40%);
   pointer-events: none;
 }
 
-.hero-grid-bg {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: 80px 80px;
-  pointer-events: none;
-  opacity: 0.4;
-  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
-}
-
-.hero-logo-big {
-  position: relative;
-  z-index: 2;
-  margin-bottom: 60px;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.hero-logo-big img {
-  height: 80px;
-  width: auto;
-  filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.5));
-  animation: glowPulse 3s ease-in-out infinite;
-}
-
-@keyframes glowPulse {
-  0%, 100% { filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.5)); }
-  50% { filter: drop-shadow(0 0 50px rgba(0, 212, 255, 0.8)); }
-}
-
-.hero-logo-fallback {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 80px;
-  letter-spacing: 0.15em;
-  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent) 50%, var(--accent-blue) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 1100px;
-}
+.hero-content { position: relative; z-index: 2; }
 
 .hero-meta {
   font-family: 'JetBrains Mono', monospace;
@@ -233,49 +171,44 @@ body::before {
   width: 40px;
   height: 1px;
   background: var(--accent);
-  box-shadow: 0 0 8px var(--accent);
 }
 
 .hero-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(56px, 8.5vw, 132px);
-  line-height: 0.92;
-  letter-spacing: -0.01em;
+  font-size: clamp(60px, 9vw, 140px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
   margin-bottom: 32px;
 }
 
 .hero-title .word-1 { display: block; color: var(--ink); }
 .hero-title .word-2 {
   display: block;
+  color: var(--accent);
   font-style: italic;
   font-family: 'Fraunces', serif;
-  font-weight: 300;
-  font-size: 0.65em;
+  font-weight: 400;
+  font-size: 0.7em;
   margin-left: 0.3em;
   margin-top: -0.05em;
-  background: linear-gradient(90deg, var(--accent-blue), var(--accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 .hero-title .word-3 { display: block; color: var(--ink); }
 
 .hero-subtitle {
-  font-size: 19px;
+  font-size: 18px;
   color: var(--ink-dim);
-  max-width: 720px;
+  max-width: 480px;
   margin-bottom: 48px;
   line-height: 1.7;
 }
 
 .hero-stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   background: var(--line);
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--line);
   margin-top: 40px;
-  max-width: 900px;
 }
 
 .hero-stat {
@@ -289,10 +222,7 @@ body::before {
 .hero-stat-num {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 36px;
-  background: linear-gradient(90deg, var(--accent-blue), var(--accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--accent);
   letter-spacing: 0.02em;
   line-height: 1;
 }
@@ -304,6 +234,71 @@ body::before {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-top: 8px;
+}
+
+/* Hero visual */
+.hero-visual {
+  position: relative;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-card {
+  position: absolute;
+  background: var(--bg-2);
+  border: 1px solid var(--line-strong);
+  padding: 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-dim);
+  width: 280px;
+  transition: transform 0.4s ease;
+}
+
+.hero-card:hover { transform: scale(1.05) rotate(0deg) !important; z-index: 10; }
+
+.hero-card-1 {
+  top: 20px;
+  right: 40px;
+  transform: rotate(-3deg);
+  border-left: 3px solid var(--accent);
+}
+
+.hero-card-2 {
+  top: 220px;
+  left: 20px;
+  transform: rotate(2deg);
+  border-left: 3px solid var(--accent-2);
+}
+
+.hero-card-3 {
+  top: 380px;
+  right: 80px;
+  transform: rotate(-1deg);
+  border-left: 3px solid var(--accent-3);
+}
+
+.hero-card-tag {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--ink-mute);
+  margin-bottom: 12px;
+}
+
+.hero-card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.hero-card-body {
+  font-size: 12px;
+  line-height: 1.5;
+  font-family: 'Fraunces', serif;
 }
 
 /* ============ SECTION BASE ============ */
@@ -319,9 +314,6 @@ section {
   gap: 40px;
   margin-bottom: 80px;
   align-items: start;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .section-num {
@@ -340,483 +332,527 @@ section {
 
 .section-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(44px, 5.5vw, 88px);
+  font-size: clamp(48px, 6vw, 96px);
   line-height: 0.95;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.01em;
 }
 
 .section-title em {
+  color: var(--accent);
   font-family: 'Fraunces', serif;
   font-style: italic;
   font-weight: 300;
-  background: linear-gradient(90deg, var(--accent-blue), var(--accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .section-intro {
   font-size: 19px;
   color: var(--ink-dim);
-  max-width: 760px;
+  max-width: 720px;
   margin-top: 24px;
   line-height: 1.7;
 }
 
-.section-content { max-width: 1400px; margin: 0 auto; }
-
-/* ============ MANIFESTO ============ */
-.manifesto {
-  text-align: center;
-  padding: 100px 40px 60px;
-  position: relative;
-  background:
-    radial-gradient(ellipse at center, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
-}
-
-.manifesto-quote {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-weight: 300;
-  font-size: clamp(28px, 4vw, 52px);
-  line-height: 1.25;
-  max-width: 1100px;
-  margin: 0 auto;
-  color: var(--ink);
-}
-
-.manifesto-quote em {
-  font-style: italic;
-  background: linear-gradient(90deg, var(--accent-blue), var(--accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.manifesto-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.3em;
-  color: var(--accent);
-  margin-top: 32px;
-}
-
-/* ============ WEEK SECTIONS ============ */
-.week-section {
-  padding: 100px 40px;
-  position: relative;
-  border-top: 1px solid var(--line);
-}
-
-.week-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-}
-
-.week-1::before { background: linear-gradient(90deg, transparent, var(--gtahub-red), transparent); }
-.week-2::before { background: linear-gradient(90deg, transparent, var(--gtahub-blue-bright), transparent); }
-.week-3::before { background: linear-gradient(90deg, transparent, var(--gtahub-gold), transparent); }
-.week-4::before { background: linear-gradient(90deg, transparent, var(--gtahub-cyan), transparent); }
-
-.week-hero {
+/* ============ DIAGNÓSTICO ============ */
+.diag-grid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 80px;
-  align-items: center;
-  max-width: 1400px;
-  margin: 0 auto 80px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border: 1px solid var(--line);
 }
 
-.week-id {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.3em;
-  margin-bottom: 24px;
-}
-
-.week-1 .week-id { color: var(--gtahub-red); }
-.week-2 .week-id { color: var(--gtahub-blue-bright); }
-.week-3 .week-id { color: var(--gtahub-gold); }
-.week-4 .week-id { color: var(--gtahub-cyan); }
-
-.week-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(48px, 6vw, 88px);
-  line-height: 0.95;
-  letter-spacing: 0.005em;
-  margin-bottom: 32px;
-}
-
-.week-cta-mantra {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 28px;
-  line-height: 1.3;
-  margin-bottom: 32px;
-  position: relative;
-  padding-left: 24px;
-}
-
-.week-cta-mantra::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 8px;
-  bottom: 8px;
-  width: 3px;
-}
-
-.week-1 .week-cta-mantra::before { background: var(--gtahub-red); }
-.week-2 .week-cta-mantra::before { background: var(--gtahub-blue-bright); }
-.week-3 .week-cta-mantra::before { background: var(--gtahub-gold); }
-.week-4 .week-cta-mantra::before { background: var(--gtahub-cyan); }
-
-.week-1 .week-cta-mantra em { color: var(--gtahub-red); }
-.week-2 .week-cta-mantra em { color: var(--gtahub-blue-bright); }
-.week-3 .week-cta-mantra em { color: var(--gtahub-gold); }
-.week-4 .week-cta-mantra em { color: var(--gtahub-cyan); }
-
-.week-targets {
-  border: 1px solid var(--line-strong);
-  padding: 32px;
-  background: var(--bg-2);
-}
-
-.target-block {
-  margin-bottom: 24px;
-  padding-bottom: 24px;
+.diag-card {
+  padding: 40px;
+  border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+  position: relative;
+  transition: background 0.3s;
 }
 
-.target-block:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.diag-card:nth-child(2n) { border-right: none; }
+.diag-card:nth-last-child(-n+2) { border-bottom: none; }
+.diag-card:hover { background: var(--bg-2); }
 
-.target-label {
+.diag-card.strength { border-top: 3px solid var(--accent); }
+.diag-card.weakness { border-top: 3px solid var(--accent-2); }
+
+.diag-tag {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
-  letter-spacing: 0.25em;
-  color: var(--ink-mute);
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-.target-content {
-  font-size: 15px;
-  color: var(--ink);
-  line-height: 1.6;
-}
-
-.target-content strong {
-  color: var(--accent);
-  font-weight: 500;
-}
-
-.week-1 .target-content strong { color: var(--gtahub-red); }
-.week-2 .target-content strong { color: var(--gtahub-blue-bright); }
-.week-3 .target-content strong { color: var(--gtahub-gold); }
-
-/* ============ COPY DAYS ============ */
-.days-stack {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.day-block {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 60px;
-  padding: 60px 0;
-  border-top: 1px solid var(--line);
-  position: relative;
-}
-
-.day-marker {
-  position: relative;
-  padding-top: 8px;
-}
-
-.day-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 56px;
-  line-height: 1;
-  background: linear-gradient(135deg, var(--ink) 0%, var(--ink-mute) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 8px;
-}
-
-.day-name {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
   letter-spacing: 0.2em;
-  color: var(--ink-mute);
   text-transform: uppercase;
+  margin-bottom: 16px;
 }
 
-.day-theme {
+.strength .diag-tag { color: var(--accent); }
+.weakness .diag-tag { color: var(--accent-2); }
+
+.diag-headline {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px;
-  margin-top: 16px;
-  line-height: 1.1;
+  font-size: 32px;
   letter-spacing: 0.02em;
+  margin-bottom: 16px;
+  line-height: 1.1;
 }
 
-.week-1 .day-theme { color: var(--gtahub-red); }
-.week-2 .day-theme { color: var(--gtahub-blue-bright); }
-.week-3 .day-theme { color: var(--gtahub-gold); }
-.week-4 .day-theme { color: var(--gtahub-cyan); }
-
-.copies-grid {
-  display: grid;
-  gap: 20px;
+.diag-body {
+  color: var(--ink-dim);
+  font-size: 15px;
+  line-height: 1.65;
 }
 
-.copy-card {
+.diag-body strong { color: var(--ink); font-weight: 500; }
+
+/* ============ CALENDARIO ============ */
+.calendar-wrap {
   background: var(--bg-2);
   border: 1px solid var(--line);
-  border-left: 3px solid var(--accent);
-  padding: 24px 28px;
-  position: relative;
-  transition: all 0.3s ease;
+  padding: 60px 40px;
 }
 
-.copy-card:hover {
-  border-left-color: var(--accent-blue);
-  background: var(--bg-3);
-  transform: translateX(4px);
-}
-
-.copy-channel {
+.calendar-header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
+  align-items: baseline;
+  margin-bottom: 60px;
+  padding-bottom: 30px;
   border-bottom: 1px solid var(--line);
 }
 
-.channel-name {
+.calendar-month {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 44px;
+  letter-spacing: 0.05em;
+}
+
+.calendar-meta {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  letter-spacing: 0.2em;
-  color: var(--accent);
-  text-transform: uppercase;
-}
-
-.channel-icon {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 14px;
-  letter-spacing: 0.1em;
-  padding: 4px 10px;
-  border: 1px solid var(--line-strong);
-  color: var(--ink-dim);
-}
-
-.copy-meta {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
   color: var(--ink-mute);
   letter-spacing: 0.15em;
-  margin-bottom: 12px;
-  text-transform: uppercase;
 }
 
-.copy-meta strong { color: var(--ink); font-weight: 500; }
+.weeks-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
 
-.copy-text {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  line-height: 1.7;
-  color: var(--ink);
-  white-space: pre-wrap;
-  background: var(--bg);
-  padding: 20px;
-  border: 1px solid var(--line);
-  margin-top: 12px;
+.week {
+  padding: 32px 28px;
+  border-right: 1px solid var(--line);
   position: relative;
-  overflow-x: auto;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  min-height: 380px;
 }
 
-.copy-text-prose {
-  font-family: 'Fraunces', serif;
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--ink);
-  margin-top: 12px;
+.week:last-child { border-right: none; }
+
+.week:hover {
+  background: var(--bg-3);
+  transform: translateY(-4px);
 }
 
-.copy-text-prose strong { color: var(--accent); font-weight: 600; }
+.week-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-mute);
+  letter-spacing: 0.2em;
+  margin-bottom: 24px;
+}
 
-.copy-tag {
+.week-num span { color: var(--accent); }
+
+.week-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+}
+
+.week-tag {
   display: inline-block;
   font-family: 'JetBrains Mono', monospace;
   font-size: 9px;
   letter-spacing: 0.2em;
-  padding: 4px 10px;
+  padding: 5px 10px;
   border: 1px solid var(--line-strong);
-  margin-right: 8px;
-  margin-bottom: 8px;
-  color: var(--ink-dim);
+  margin-bottom: 24px;
   text-transform: uppercase;
 }
 
-.copy-tag.highlight {
-  border-color: var(--accent);
-  color: var(--accent);
+.week-1 .week-tag { color: var(--accent-2); border-color: var(--accent-2); }
+.week-2 .week-tag { color: var(--accent-3); border-color: var(--accent-3); }
+.week-3 .week-tag { color: var(--gold); border-color: var(--gold); }
+.week-4 .week-tag { color: var(--accent); border-color: var(--accent); }
+
+.week-desc {
+  font-size: 14px;
+  color: var(--ink-dim);
+  line-height: 1.6;
+  margin-bottom: 24px;
 }
 
-.cta-box {
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, rgba(26, 115, 232, 0.04) 100%);
-  border: 1px solid var(--accent);
-  padding: 24px 28px;
-  margin: 32px 0;
+.week-actions {
+  list-style: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-dim);
+}
+
+.week-actions li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.week-actions li:last-child { border-bottom: none; }
+
+.week-actions li::before {
+  content: '→';
+  color: var(--accent);
+  font-family: 'Fraunces', serif;
+}
+
+/* ============ TIMELINE 30/60 ============ */
+.timeline {
+  position: relative;
+}
+
+.timeline-track {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.timeline-track::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--line);
+  z-index: 0;
+}
+
+.timeline-week {
+  position: relative;
+  padding: 0 16px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.timeline-week:hover { transform: translateY(-6px); }
+
+.timeline-week-marker {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--ink-mute);
+  margin: 0 auto 30px;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s;
+}
+
+.timeline-week:nth-child(-n+4) .timeline-week-marker {
+  border-color: var(--accent);
+}
+
+.timeline-week:nth-child(-n+4):hover .timeline-week-marker {
+  background: var(--accent);
+  box-shadow: 0 0 20px var(--accent);
+}
+
+.timeline-week:nth-child(n+5) .timeline-week-marker {
+  border-color: var(--accent-2);
+}
+
+.timeline-week:nth-child(n+5):hover .timeline-week-marker {
+  background: var(--accent-2);
+  box-shadow: 0 0 20px var(--accent-2);
+}
+
+.timeline-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--ink-mute);
+  letter-spacing: 0.18em;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.timeline-content {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.phase-badges {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 80px;
+}
+
+.phase-badge {
+  padding: 32px;
+  border: 1px solid var(--line-strong);
   position: relative;
   overflow: hidden;
 }
 
-.cta-box::before {
+.phase-badge::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 4px;
   height: 100%;
-  background: linear-gradient(180deg, var(--accent), var(--accent-blue));
-  box-shadow: 0 0 20px var(--accent);
 }
 
-.cta-label {
+.phase-badge.p1::before { background: var(--accent); }
+.phase-badge.p2::before { background: var(--accent-2); }
+
+.phase-num {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  color: var(--accent);
+  font-size: 11px;
+  color: var(--ink-mute);
+  letter-spacing: 0.2em;
   margin-bottom: 12px;
-  text-transform: uppercase;
 }
 
-.cta-mantra {
+.phase-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 32px;
-  line-height: 1.1;
+  font-size: 36px;
   letter-spacing: 0.02em;
-  color: var(--ink);
+  margin-bottom: 16px;
 }
 
-.cta-mantra em {
+.phase-title em {
   font-family: 'Fraunces', serif;
   font-style: italic;
   font-weight: 300;
-  background: linear-gradient(90deg, var(--accent-blue), var(--accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* ============ HASHTAGS ============ */
-.hashtags-bar {
-  margin-top: 60px;
-  padding: 32px;
-  border: 1px solid var(--line);
-  background: var(--bg-2);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
-}
-
-.hashtags-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.25em;
-  color: var(--ink-mute);
-  text-transform: uppercase;
-  margin-right: 16px;
-}
-
-.hashtag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  padding: 6px 14px;
-  background: var(--bg);
-  border: 1px solid var(--line-strong);
   color: var(--accent);
-  letter-spacing: 0.05em;
-  transition: all 0.3s;
-  cursor: default;
 }
 
-.hashtag:hover {
-  background: var(--accent);
-  color: var(--bg);
-  border-color: var(--accent);
+.phase-badge.p2 .phase-title em { color: var(--accent-2); }
+
+.phase-desc {
+  color: var(--ink-dim);
+  font-size: 15px;
+  line-height: 1.7;
 }
 
-/* ============ SUMMARY ============ */
-.summary-table-wrap {
-  max-width: 1400px;
-  margin: 0 auto;
+/* ============ KPIs ============ */
+.kpi-table-wrap {
   border: 1px solid var(--line);
-  overflow-x: auto;
+  overflow: hidden;
 }
 
-.summary-table {
+.kpi-table {
   width: 100%;
   border-collapse: collapse;
   font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
-  min-width: 900px;
 }
 
-.summary-table thead {
+.kpi-table thead {
   background: var(--bg-2);
 }
 
-.summary-table th {
+.kpi-table th {
   text-align: left;
-  padding: 22px 24px;
+  padding: 20px 24px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   font-size: 10px;
   color: var(--ink-dim);
   border-bottom: 1px solid var(--line);
 }
 
-.summary-table td {
-  padding: 24px;
+.kpi-table th:first-child { width: 35%; }
+
+.kpi-table td {
+  padding: 20px 24px;
   border-bottom: 1px solid var(--line);
-  vertical-align: top;
+  color: var(--ink);
   transition: background 0.2s;
 }
 
-.summary-table tr:last-child td { border-bottom: none; }
-.summary-table tr:hover td { background: var(--bg-2); }
+.kpi-table tr:hover td { background: var(--bg-2); }
+.kpi-table tr:last-child td { border-bottom: none; }
 
-.summary-week {
+.kpi-table td:first-child {
+  font-family: 'Fraunces', serif;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.kpi-baseline { color: var(--ink-mute); }
+.kpi-target { color: var(--accent); }
+.kpi-target-2 { color: var(--accent-2); }
+
+/* ============ EQUIPO ============ */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.team-card {
+  background: var(--bg);
+  padding: 32px 28px;
+  position: relative;
+  transition: background 0.3s;
+}
+
+.team-card:hover { background: var(--bg-2); }
+
+.team-num {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+}
+
+.team-icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--line-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: 'Bebas Neue', sans-serif;
   font-size: 22px;
-  letter-spacing: 0.03em;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+
+.team-role {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
   line-height: 1.1;
 }
 
-.summary-table tr:nth-child(1) .summary-week { color: var(--gtahub-red); }
-.summary-table tr:nth-child(2) .summary-week { color: var(--gtahub-blue-bright); }
-.summary-table tr:nth-child(3) .summary-week { color: var(--gtahub-gold); }
-.summary-table tr:nth-child(4) .summary-week { color: var(--gtahub-cyan); }
-
-.summary-prose {
-  font-family: 'Fraunces', serif;
-  font-size: 14px;
+.team-desc {
+  font-size: 13px;
   color: var(--ink-dim);
   line-height: 1.6;
 }
 
-/* ============ CIERRE ============ */
+/* ============ STREAMERS ============ */
+.streamers-section {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  padding: 60px 40px;
+}
+
+.streamers-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.streamers-table th {
+  text-align: left;
+  padding: 16px 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  border-bottom: 1px solid var(--line);
+}
+
+.streamers-table td {
+  padding: 24px 20px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.streamers-table tr:last-child td { border-bottom: none; }
+
+.streamers-table .week-cell {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+  width: 200px;
+}
+
+.streamers-table .role-cell {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  width: 220px;
+}
+
+.streamers-table .desc-cell {
+  font-family: 'Fraunces', serif;
+  color: var(--ink-dim);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ============ RIESGOS ============ */
+.risks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.risk-card {
+  padding: 32px;
+  border: 1px solid var(--line);
+  position: relative;
+  transition: all 0.3s;
+}
+
+.risk-card:hover {
+  border-color: var(--accent-2);
+  transform: translateY(-4px);
+}
+
+.risk-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 64px;
+  color: var(--accent-2);
+  line-height: 0.8;
+  margin-bottom: 20px;
+  opacity: 0.4;
+}
+
+.risk-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.03em;
+  margin-bottom: 16px;
+}
+
+.risk-body {
+  color: var(--ink-dim);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ============ CTA / CIERRE ============ */
 .cierre {
   padding: 160px 40px;
   text-align: center;
@@ -824,69 +860,58 @@ section {
   overflow: hidden;
 }
 
-.cierre-bg {
+.cierre::before {
+  content: '';
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 60%),
-    radial-gradient(circle at 30% 30%, rgba(26, 115, 232, 0.06) 0%, transparent 50%);
-  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(212, 255, 58, 0.06) 0%, transparent 60%);
 }
 
 .cierre-quote {
   font-family: 'Fraunces', serif;
   font-style: italic;
   font-weight: 300;
-  font-size: clamp(34px, 5vw, 64px);
+  font-size: clamp(32px, 4.5vw, 56px);
   line-height: 1.2;
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 0 auto 60px;
   color: var(--ink);
   position: relative;
 }
 
 .cierre-quote em {
-  background: linear-gradient(90deg, var(--accent-blue), var(--accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--accent);
   font-style: italic;
 }
 
-.cierre-cta {
-  display: inline-block;
-  margin-top: 40px;
-  padding: 22px 48px;
-  background: transparent;
-  border: 2px solid var(--accent);
-  color: var(--accent);
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 18px;
-  letter-spacing: 0.25em;
-  text-decoration: none;
+.cierre-stats {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
   position: relative;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  overflow: hidden;
+  flex-wrap: wrap;
 }
 
-.cierre-cta::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, var(--accent-blue), var(--accent));
-  transform: translateX(-100%);
-  transition: transform 0.4s ease;
-  z-index: -1;
+.cierre-stat {
+  text-align: center;
 }
 
-.cierre-cta:hover {
-  color: var(--bg);
-  border-color: var(--accent);
-  box-shadow: 0 0 30px var(--accent);
+.cierre-stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 80px;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.02em;
 }
 
-.cierre-cta:hover::before { transform: translateX(0); }
+.cierre-stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--ink-mute);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
 
 /* ============ FOOTER ============ */
 footer {
@@ -894,15 +919,12 @@ footer {
   border-top: 1px solid var(--line);
   display: flex;
   justify-content: space-between;
-  align-items: center;
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--ink-mute);
 }
-
-footer img { height: 24px; opacity: 0.6; }
 
 /* ============ ANIMATIONS ============ */
 @keyframes fadeUp {
@@ -926,1462 +948,751 @@ footer img { height: 24px; opacity: 0.6; }
   transform: translateY(0);
 }
 
-@keyframes slideRight {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
 /* ============ RESPONSIVE ============ */
 @media (max-width: 1024px) {
-  .hero { padding: 120px 24px 60px; }
-  .week-hero { grid-template-columns: 1fr; gap: 40px; }
-  .day-block { grid-template-columns: 1fr; gap: 20px; }
-  .day-marker { display: flex; align-items: baseline; gap: 16px; }
-  .day-num { font-size: 40px; }
-  .section-header { grid-template-columns: 1fr; gap: 16px; }
-  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .hero { grid-template-columns: 1fr; gap: 40px; }
+  .hero-visual { height: 500px; }
+  .section-header { grid-template-columns: 1fr; }
+  .weeks-grid { grid-template-columns: repeat(2, 1fr); }
+  .week { border-bottom: 1px solid var(--line); }
+  .week:nth-child(2n) { border-right: none; }
+  .timeline-track { grid-template-columns: repeat(4, 1fr); gap: 24px 0; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .risks { grid-template-columns: 1fr; }
+  .phase-badges { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
-  .nav { padding: 14px 20px; }
+  .nav { padding: 16px 20px; }
   .nav-links { display: none; }
-  section, .week-section { padding: 70px 20px; }
-  .hero { padding: 100px 20px 50px; }
-  .hero-logo-big { margin-bottom: 40px; }
-  .hero-logo-big img { height: 50px; }
+  section { padding: 80px 20px; }
+  .hero { padding: 120px 20px 60px; }
   .hero-stats { grid-template-columns: 1fr; }
-  .week-targets { padding: 24px; }
-  .copy-card { padding: 20px; }
-  .copy-text { padding: 14px; font-size: 12px; }
-  .summary-table-wrap { font-size: 11px; }
-  footer { flex-direction: column; gap: 16px; text-align: center; }
+  .weeks-grid { grid-template-columns: 1fr; }
+  .week { border-right: none; }
+  .timeline-track { grid-template-columns: repeat(2, 1fr); }
+  .diag-grid { grid-template-columns: 1fr; }
+  .diag-card { border-right: none; }
+  .team-grid { grid-template-columns: 1fr; }
+  .cierre-stats { gap: 40px; }
+  .calendar-wrap { padding: 32px 20px; }
+  .streamers-section { padding: 32px 20px; }
+  .streamers-table .week-cell { width: auto; font-size: 18px; }
+  .streamers-table th, .streamers-table td { padding: 12px 8px; font-size: 12px; }
+  .kpi-table th, .kpi-table td { padding: 12px 14px; font-size: 11px; }
 }
+
+
+
+/* ============ ELEEVATE PAGE TRANSITIONS + HUB NAV ============ */
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  pointer-events: none;
+  transform: translateY(100%);
+  transition: transform .72s cubic-bezier(.77,0,.18,1);
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,.18), transparent 26%),
+    linear-gradient(135deg, var(--accent, #00d4ff), var(--accent-3, #3aa4ff));
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.page-transition::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,0,0,.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,.10) 1px, transparent 1px);
+  background-size: 46px 46px;
+  opacity: .45;
+}
+
+.page-transition.active {
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.page-transition-label {
+  position: relative;
+  z-index: 2;
+  font-family: 'Bebas Neue', sans-serif;
+  color: #05070c;
+  font-size: clamp(42px, 8vw, 120px);
+  line-height: .85;
+  letter-spacing: .06em;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 12px 30px rgba(0,0,0,.18);
+}
+
+.page-transition-label small {
+  display: block;
+  margin-top: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(10px, 1.3vw, 15px);
+  letter-spacing: .28em;
+  opacity: .72;
+}
+
+.hub-dock {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 999px;
+  background: rgba(10, 14, 26, .72);
+  border: 1px solid rgba(255,255,255,.14);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 22px 70px rgba(0,0,0,.42);
+}
+
+.hub-dock a {
+  position: relative;
+  overflow: hidden;
+  padding: 11px 15px;
+  border-radius: 999px;
+  color: rgba(255,255,255,.72);
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  transition: all .25s ease;
+  white-space: nowrap;
+}
+
+.hub-dock a:hover,
+.hub-dock a.active {
+  color: var(--bg, #0a0e1a);
+  background: var(--accent, #00d4ff);
+  border-color: var(--accent, #00d4ff);
+  box-shadow: 0 0 24px rgba(0,212,255,.32);
+  transform: translateY(-2px);
+}
+
+.hub-dock a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+  transform: translateX(-120%);
+  transition: transform .5s ease;
+}
+
+.hub-dock a:hover::after { transform: translateX(120%); }
+
+body.page-enter {
+  animation: pageFadeIn .75s ease both;
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; filter: blur(8px); transform: translateY(18px); }
+  to { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  .hub-dock {
+    width: calc(100% - 28px);
+    bottom: 14px;
+    justify-content: space-between;
+    border-radius: 22px;
+  }
+
+  .hub-dock a {
+    flex: 1;
+    text-align: center;
+    padding: 11px 8px;
+    font-size: 9px;
+    letter-spacing: .08em;
+  }
+
+  footer { padding-bottom: 100px !important; }
+}
+
 </style>
 </head>
 <body>
 
+<!-- ELEEVATE / GTAHUB PAGE TRANSITION -->
+<div class="page-transition" id="pageTransition" aria-hidden="true">
+  <div class="page-transition-label">
+    Loading
+    <small>Eleevate MX × GTAHUB</small>
+  </div>
+</div>
+
+<!-- HUB NAVIGATION DOCK -->
+<div class="hub-dock" aria-label="Navegación entre documentos">
+  <a href="index.html" class="page-link">Inicio</a>
+  <a href="plan.html" class="page-link active">Plan</a>
+  <a href="semana.html" class="page-link ">Semana</a>
+</div>
+
+
 <!-- NAV -->
 <nav class="nav">
-  <div class="nav-logo">
-    <img src="https://i.imgur.com/xFAZQVy.png" alt="GTAHUB" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'">
-    <span class="nav-logo-fallback" style="display:none">GTAHUB</span>
-  </div>
+  <div class="nav-logo">GTAHUB</div>
   <ul class="nav-links">
-    <li><a href="#manifesto">Manifiesto</a></li>
-    <li><a href="#semana-1">Sem 1</a></li>
-    <li><a href="#semana-2">Sem 2</a></li>
-    <li><a href="#semana-3">Sem 3</a></li>
-    <li><a href="#semana-4">Sem 4</a></li>
-    <li><a href="#resumen">Resumen</a></li>
+    <li><a href="#diagnostico">Diagnóstico</a></li>
+    <li><a href="#calendario">Calendario</a></li>
+    <li><a href="#timeline">30/60 días</a></li>
+    <li><a href="#kpis">KPIs</a></li>
+    <li><a href="#equipo">Equipo</a></li>
+    <li><a href="#riesgos">Riesgos</a></li>
   </ul>
-  <div class="nav-tag">PLAN MKT · COPYS</div>
+  <div class="nav-tag">PLAN MKT · 2026</div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-grid-bg"></div>
-
-  <div class="hero-logo-big reveal" style="animation-delay: 0.1s;">
-    <img src="https://i.imgur.com/xFAZQVy.png" alt="GTAHUB" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'">
-    <span class="hero-logo-fallback" style="display:none">GTAHUB</span>
-  </div>
-
   <div class="hero-content">
-    <div class="hero-meta reveal" style="animation-delay: 0.2s;">PLAN DE MERCADOTECNIA · COPYS · ABR 2026</div>
+    <div class="hero-meta reveal" style="animation-delay: 0.1s;">PROPUESTA INTERNA · ABR 2026</div>
     <h1 class="hero-title">
-      <span class="word-1 reveal" style="animation-delay: 0.3s;">Puede ser</span>
-      <span class="word-2 reveal" style="animation-delay: 0.5s;">tu organización.</span>
-      <span class="word-3 reveal" style="animation-delay: 0.7s;">Puedes ser tú.</span>
+      <span class="word-1 reveal" style="animation-delay: 0.2s;">El plan</span>
+      <span class="word-2 reveal" style="animation-delay: 0.4s;">para activar</span>
+      <span class="word-3 reveal" style="animation-delay: 0.6s;">la base</span>
     </h1>
-    <p class="hero-subtitle reveal" style="animation-delay: 0.9s;">
-      Cuatro semanas. Cuatro temas. Una sola comunidad.
-      Esta es la propuesta de copys, targets y CTAs listos para ejecutar
-      en Discord, Email, Twitter, TikTok e in-game. Cada palabra escrita
-      para mover a las 135,907 personas que ya están en GTAHUB.
+    <p class="hero-subtitle reveal" style="animation-delay: 0.8s;">
+      Una estrategia de mercadotecnia rotativa que convierte 135,907 miembros de Discord
+      en jugadores activos, ingresos recurrentes y comunidad evangelizadora.
+      Construida sobre canales propios. Sin depender de adquisición externa cara.
     </p>
-    <div class="hero-stats reveal" style="animation-delay: 1.1s;">
+    <div class="hero-stats reveal" style="animation-delay: 1.0s;">
       <div class="hero-stat">
-        <div class="hero-stat-num">04</div>
-        <div class="hero-stat-label">Semanas rotativas</div>
+        <div class="hero-stat-num">135.9K</div>
+        <div class="hero-stat-label">Discord</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-num">05</div>
-        <div class="hero-stat-label">Canales activados</div>
+        <div class="hero-stat-num">+1000</div>
+        <div class="hero-stat-label">Online simultáneo</div>
       </div>
       <div class="hero-stat">
         <div class="hero-stat-num">10</div>
         <div class="hero-stat-label">Streamers oficiales</div>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">∞</div>
-        <div class="hero-stat-label">Historias por contar</div>
-      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card hero-card-1">
+      <div class="hero-card-tag">// SEM 1</div>
+      <div class="hero-card-title">Organizaciones</div>
+      <div class="hero-card-body">Mafias, dealers, conquistas. Engagement criminal.</div>
+    </div>
+    <div class="hero-card hero-card-2">
+      <div class="hero-card-tag">// SEM 2</div>
+      <div class="hero-card-title">Facciones legales</div>
+      <div class="hero-card-body">LSPD, LSAF, FIB, DOJ. Reclutamiento y operativos.</div>
+    </div>
+    <div class="hero-card hero-card-3">
+      <div class="hero-card-tag">// SEM 3</div>
+      <div class="hero-card-title">HUBCoins</div>
+      <div class="hero-card-body">Promo mensual. Fin de semana de monetización.</div>
     </div>
   </div>
 </section>
 
-<!-- MANIFESTO -->
-<section id="manifesto" class="manifesto">
-  <p class="manifesto-quote">
-    "No estamos vendiendo un servidor. <em>Estamos invitando a alguien a ser
-    el protagonista</em> de la historia que siempre quiso vivir."
-  </p>
-  <div class="manifesto-tag">// FILOSOFÍA DE COMUNICACIÓN</div>
-</section>
-
-<!-- ============ SEMANA 1 · ORGANIZACIONES ============ -->
-<section id="semana-1" class="week-section week-1">
-  <div class="week-hero">
-    <div data-reveal>
-      <div class="week-id">SEMANA 01 · DEL [LUN] AL [DOM]</div>
-      <h2 class="week-name">Semana de<br>Organizaciones</h2>
-      <p class="week-cta-mantra">
-        "Los Santos tiene dueños esta semana.<br>
-        Y mañana <em>puede ser tu organización.</em>"
-      </p>
-    </div>
-
-    <div class="week-targets" data-reveal>
-      <div class="target-block">
-        <div class="target-label">▸ TARGET PRINCIPAL</div>
-        <p class="target-content">
-          Jugadores 16–28 años, hispanos, atraídos por <strong>rol criminal</strong>:
-          mafias, narcos, golpes, conflicto urbano. Activos en organizaciones
-          ilegales actuales o explorando el lado oscuro del servidor.
-        </p>
-      </div>
-      <div class="target-block">
-        <div class="target-label">▸ TARGET SECUNDARIO</div>
-        <p class="target-content">
-          Jugadores nuevos sin facción definida. <strong>Inactivos 30–60 días</strong>
-          que se desconectaron por falta de trama nueva.
-        </p>
-      </div>
-      <div class="target-block">
-        <div class="target-label">▸ OBJETIVO DE CAMPAÑA</div>
-        <p class="target-content">
-          Engagement comunitario + <strong>reactivación de inactivos criminales</strong>
-          + atracción de nuevos jugadores con narrativa oscura.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="days-stack">
-
-    <!-- LUNES -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">01</div>
-        <div class="day-name">// LUNES</div>
-        <div class="day-theme">Org of the Week</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Discord — Anuncio pinneado</span>
-            <span class="channel-icon">DC</span>
-          </div>
-          <div class="copy-meta">FORMATO: <strong>POST FIJADO</strong> · HORA: <strong>10:00</strong></div>
-<pre class="copy-text">📍 ORG OF THE WEEK · [NOMBRE_ORG]
-
-Esta semana ponemos los reflectores sobre [NOMBRE_ORG].
-Llevan [X] meses moviéndose por Los Santos. Tienen
-[X] dealers controlados. Y una historia que pocos conocen.
-
-Esta podría ser tu org el próximo mes.
-Pero primero, conoce a quienes lo lograron.
-
-Hilo completo en Twitter ↓
-AMA con sus líderes este jueves a las [HORA].</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Twitter / X — Hilo</span>
-            <span class="channel-icon">X</span>
-          </div>
-          <div class="copy-meta">FORMATO: <strong>HILO 6 TWEETS</strong> · HORA: <strong>14:00</strong></div>
-<pre class="copy-text">[1/6] ORG OF THE WEEK 🩸
-
-Esta semana hablamos de [NOMBRE_ORG].
-
-No salieron de la nada. Y no se van pronto.
-Hilo ↓
-
-[2-5] · Historia, miembros, conquistas, rivalidades
-
-[6/6] La pregunta no es si [NOMBRE_ORG] va a seguir.
-La pregunta es: ¿quién va a ser la próxima?
-
-Tu historia empieza con código MAFIA → bio</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ TikTok — Clip 30s</span>
-            <span class="channel-icon">TK</span>
-          </div>
-          <div class="copy-meta">FORMATO: <strong>HIGHLIGHT REEL</strong> · MÚSICA: <strong>HIP-HOP OSCURO</strong></div>
-          <p class="copy-text-prose">
-            <strong>Visual:</strong> highlight de los mejores momentos de la org en el último mes (robos, conquistas, tiroteos).<br>
-            <strong>Texto en pantalla:</strong> "[NOMBRE_ORG]. Conoce a los que mueven Los Santos esta semana."<br>
-            <strong>CTA final:</strong> "¿Sientes que puedes hacer mejor? Empieza con código MAFIA. Link en bio."
-          </p>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Email — Segmento general activo</span>
-            <span class="channel-icon">@</span>
-          </div>
-          <div class="copy-meta">ASUNTO · PREVIEW · CTA</div>
-<pre class="copy-text">ASUNTO:    [NOMBRE_ORG] no se rinde. Tampoco tú.
-PREVIEW:   La org de la semana tiene historia. Y un AMA el jueves.
-CTA:       LEE LA HISTORIA →</pre>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- MARTES -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">02</div>
-        <div class="day-name">// MARTES</div>
-        <div class="day-theme">Conquista x2</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Discord — Anuncio</span>
-            <span class="channel-icon">DC</span>
-          </div>
-<pre class="copy-text">⚔️ CONQUISTA x2 · ACTIVA HASTA LAS 23:59
-
-Las organizaciones ilegales tienen recompensas DOBLES
-en conquista de dealer hoy.
-
-Sin extensiones. Sin segundas oportunidades.
-
-Si tu org no está moviéndose ahora mismo,
-mañana otros tendrán los dealers que tú querías.
-
-Esta podría ser la semana que cambie todo.
-Y la decisión es tuya.</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ In-game — Notificación login</span>
-            <span class="channel-icon">IG</span>
-          </div>
-<pre class="copy-text">[CONQUISTA x2 ACTIVA] · Recompensas dobles hasta las 23:59
-Tu org. Tu turno. Tu Los Santos.</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Twitter / X</span>
-            <span class="channel-icon">X</span>
-          </div>
-<pre class="copy-text">24 horas.
-Recompensas dobles.
-8 dealers en juego.
-
-¿Tu org está dentro o mirando?
-
-#GTAHUB #ConquistaDoble</pre>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- MIÉRCOLES -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">03</div>
-        <div class="day-name">// MIÉRCOLES</div>
-        <div class="day-theme">Mejor robo de la semana</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ TikTok / Reels — Clip 45s</span>
-            <span class="channel-icon">TK</span>
-          </div>
-          <p class="copy-text-prose">
-            <strong>Visual:</strong> el robo más espectacular del mes anterior, editado con cortes rápidos y música cinematográfica.<br>
-            <strong>Texto:</strong> "El robo del mes en GTAHUB. Protagonistas: [STREAMERS]. Botín: $[XXX,XXX]."<br>
-            <strong>CTA:</strong> "¿Crees que puedes superarlo? El servidor te espera. Tu nombre, en el clip del mes que viene. Código GTAHUB → bio."
-          </p>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Discord — Reto comunitario</span>
-            <span class="channel-icon">DC</span>
-          </div>
-<pre class="copy-text">💰 EL ROBO DEL MES
-
-[STREAMERS] dejaron la barra alta este mes.
-Mira el clip completo y dinos: ¿se puede superar?
-
-Comenta tu mejor golpe del mes pasado.
-El comentario más votado se sube a TikTok oficial
-la próxima semana.
-
-Tu nombre. Tu rol. Tu momento.</pre>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- JUEVES -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">04</div>
-        <div class="day-name">// JUEVES</div>
-        <div class="day-theme">AMA en directo</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Discord — Anuncio + recordatorio</span>
-            <span class="channel-icon">DC</span>
-          </div>
-<pre class="copy-text">🎙️ AMA EN VIVO · [HORA] · CANAL DE VOZ
-
-Hoy, [NOMBRE_LIDER_IC] de [NOMBRE_ORG] responde
-preguntas en directo durante 1 hora.
-
-Cómo construyeron la org, qué pasó con [RIVALIDAD],
-y qué viene en los próximos meses.
-
-Drops sus preguntas en #ama-preguntas antes de las [HORA-1].
-
-Una hora. Sin filtros. Sin OOC.
-La próxima vez puede ser tu líder respondiendo.</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Twitter / X</span>
-            <span class="channel-icon">X</span>
-          </div>
-<pre class="copy-text">HOY · [HORA] · AMA con [NOMBRE_LIDER_IC]
-
-Una hora. Sin filtros. Sin OOC.
-Solo preguntas y la verdad de [NOMBRE_ORG].
-
-Discord oficial → [LINK]</pre>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- VIERNES -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">05</div>
-        <div class="day-name">// VIERNES</div>
-        <div class="day-theme">Trailer criminal</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ TikTok / Twitter / YouTube Shorts — 60–90s</span>
-            <span class="channel-icon">VID</span>
-          </div>
-          <p class="copy-text-prose">
-            <strong>Visual:</strong> montaje cinematográfico de momentos criminales del mes en GTAHUB. Cortes rápidos. Filtro oscuro.<br>
-            <strong>Audio:</strong> track épico-oscuro con bajo profundo.<br>
-            <strong>Texto final:</strong> "Los Santos tiene dueños esta semana. Y mañana puede ser tu org."<br>
-            <strong>CTA grabado:</strong> "Únete con código MAFIA. Boost x2 de XP las primeras 7 días. Tu nombre, tu historia, tu turno."
-          </p>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Email — Segmento INACTIVOS 30d+</span>
-            <span class="channel-icon">@</span>
-          </div>
-<pre class="copy-text">ASUNTO:    Tu personaje sigue ahí. Tu org también.
-PREVIEW:   Esta semana se está moviendo todo en Los Santos.
-           Vuelve con código MAFIA.
-
-[BODY]
-Hace [X] días que tu personaje no se conecta.
-Mientras tanto, [NOMBRE_ORG] subió. Las calles cambiaron.
-Hay dealers nuevos. Rivalidades que no estaban.
-
-Tu silla sigue libre.
-La próxima historia puede ser tuya.
-
-Código MAFIA · Boost x2 las primeras 7 días.
-
-[VOLVER A GTAHUB →]</pre>
-        </div>
-
-        <div class="cta-box">
-          <div class="cta-label">▸ MANTRA DE LA SEMANA · CIERRE</div>
-          <p class="cta-mantra">
-            "Cada org grande empezó con alguien<br>
-            que dijo <em>'esto puede ser mío'.</em>"
-          </p>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-
-  <div class="hashtags-bar" data-reveal>
-    <span class="hashtags-label">▸ Hashtags Sem 1 ·</span>
-    <span class="hashtag">#GTAHUB</span>
-    <span class="hashtag">#SemanaDeOrganizaciones</span>
-    <span class="hashtag">#LosSantos</span>
-    <span class="hashtag">#GTARoleplay</span>
-    <span class="hashtag">#MafiasGTAHUB</span>
-    <span class="hashtag">#PuedeSerTuOrg</span>
-  </div>
-</section>
-
-
-<!-- ============ SEMANA 2 · FACCIONES LEGALES ============ -->
-<section id="semana-2" class="week-section week-2">
-  <div class="week-hero">
-    <div data-reveal>
-      <div class="week-id">SEMANA 02 · DEL [LUN] AL [DOM]</div>
-      <h2 class="week-name">Semana de<br>Facciones Legales</h2>
-      <p class="week-cta-mantra">
-        "No todos los héroes llevan placa.<br>
-        Pero <em>algunos podrían ser tú.</em>"
-      </p>
-    </div>
-
-    <div class="week-targets" data-reveal>
-      <div class="target-block">
-        <div class="target-label">▸ TARGET PRINCIPAL</div>
-        <p class="target-content">
-          Jugadores 18–35 años con perfil disciplinado, atraídos por
-          <strong>rol vocacional, jerarquías y operativos</strong>. Fans de series
-          como The Wire, Brooklyn 99, Chicago Fire.
-        </p>
-      </div>
-      <div class="target-block">
-        <div class="target-label">▸ TARGET SECUNDARIO</div>
-        <p class="target-content">
-          Jugadores civiles que aún no eligieron facción.
-          <strong>Reclutas potenciales</strong> para LSPD, LSES, LSAF en exploración.
-        </p>
-      </div>
-      <div class="target-block">
-        <div class="target-label">▸ OBJETIVO DE CAMPAÑA</div>
-        <p class="target-content">
-          <strong>Reclutamiento activo</strong> a facciones gubernamentales +
-          balance narrativo después de la semana criminal.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="days-stack">
-
-    <!-- LUNES LSPD -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">01</div>
-        <div class="day-name">// LUNES</div>
-        <div class="day-theme">Día del LSPD</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Discord — Anuncio pinneado</span>
-            <span class="channel-icon">DC</span>
-          </div>
-<pre class="copy-text">🚓 DÍA DEL LSPD
-
-Esta semana arrancamos con quienes patrullan
-las calles de Los Santos las 24 horas.
-
-📊 Stats del mes pasado:
-   · [X] operativos exitosos
-   · [X] arrestos formales
-   · [X] reclutas nuevos
-   · [X] horas de patrulla
-
-Cualquier ciudadano de Los Santos puede aplicar.
-La próxima placa puede ser tuya.
-
-Aplicaciones abiertas: [LINK]</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Twitter / X</span>
-            <span class="channel-icon">X</span>
-          </div>
-<pre class="copy-text">Mientras unos rolean criminal,
-otros se levantan a las 6 AM
-para ponerse el uniforme del LSPD.
-
-Esta semana, son ellos.
-La próxima, podrías ser tú.
-
-Día del LSPD · GTAHUB</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ TikTok — POV Ride-along 45s</span>
-            <span class="channel-icon">TK</span>
-          </div>
-          <p class="copy-text-prose">
-            <strong>Visual:</strong> ride-along POV de un operativo del LSPD — desde el briefing hasta el arresto.<br>
-            <strong>Texto:</strong> "Un día en el LSPD de GTAHUB. Aplicaciones abiertas."<br>
-            <strong>CTA final:</strong> "Tu primera patrulla puede ser la próxima semana. Código BADGE → bio."
-          </p>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Email — Segmento sin facción</span>
-            <span class="channel-icon">@</span>
-          </div>
-<pre class="copy-text">ASUNTO:    ¿Has pensado en cruzar al otro lado?
-PREVIEW:   LSPD reclutamiento abierto esta semana.
-           Tu placa te espera.</pre>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- MARTES LSES -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">02</div>
-        <div class="day-name">// MARTES</div>
-        <div class="day-theme">Día del LSES</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Discord</span>
-            <span class="channel-icon">DC</span>
-          </div>
-<pre class="copy-text">🚑 DÍA DEL LSES · MEDICINA Y BOMBEROS
-
-Los que aparecen cuando todo va mal.
-Y los que se quedan cuando todos se van.
-
-Esta semana:
-   · Certificaciones médicas básicas GRATIS
-   · Tour por las estaciones LSFD
-   · Q&A con el Director del LSES
-
-Para los que rolean ayuda real.
-La próxima ambulancia puede ser tuya.
-
-Aplicaciones: [LINK]</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Twitter / X</span>
-            <span class="channel-icon">X</span>
-          </div>
-<pre class="copy-text">No todos los héroes llevan placa.
-Algunos llevan camilla.
-
-Día del LSES · GTAHUB
-Tu uniforme te espera.</pre>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- MIÉRCOLES LSAF -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">03</div>
-        <div class="day-name">// MIÉRCOLES</div>
-        <div class="day-theme">Día del LSAF</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Discord</span>
-            <span class="channel-icon">DC</span>
-          </div>
-<pre class="copy-text">🪖 DÍA DEL LSAF · FUERZAS ARMADAS
-
-Tres ramas. Un mando. Cero excusas.
-
-Hoy abrimos formularios fase 1 para los que quieran
-sumarse al ejército, marina o fuerza aérea.
-Próximas BMT: [FECHAS].
-
-Cayo Perico necesita más manos.
-Una de ellas puede ser la tuya.</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Twitter / X</span>
-            <span class="channel-icon">X</span>
-          </div>
-<pre class="copy-text">El servicio empieza el día que dices "sí".
-La disciplina, todos los días después.
-
-LSAF · Fase 1 abierta hasta el [FECHA]
-Tu rango futuro empieza con un formulario.</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ TikTok — Montaje militar</span>
-            <span class="channel-icon">TK</span>
-          </div>
-          <p class="copy-text-prose">
-            <strong>Visual:</strong> montaje de operativos militares en Cayo Perico, formaciones, BMT.<br>
-            <strong>Texto:</strong> "No es un trabajo. Es un compromiso."<br>
-            <strong>CTA:</strong> "Postulación abierta. Tu lugar en formación te espera. Código LSAF → bio."
-          </p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- JUEVES FIB / USMS -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">04</div>
-        <div class="day-name">// JUEVES</div>
-        <div class="day-theme">Día del FIB / USMS</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Discord</span>
-            <span class="channel-icon">DC</span>
-          </div>
-<pre class="copy-text">🕴️ DÍA DEL FIB / USMS · JURISDICCIÓN FEDERAL
-
-Los casos que el LSPD no puede tocar.
-Los fugitivos que cruzan estado.
-La inteligencia que no aparece en los noticieros.
-
-Hoy desclasificamos (parcialmente) el caso del mes.
-Spoiler: hay nombres conocidos involucrados.
-
-El próximo agente que firme puede ser quien resuelva
-el caso del mes que viene.
-
-Lectura completa: [LINK]</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Twitter / X</span>
-            <span class="channel-icon">X</span>
-          </div>
-<pre class="copy-text">Algunas investigaciones tardan semanas.
-Algunas tardan años.
-Algunas no terminan nunca.
-
-El próximo nombre que las cierre puede ser el tuyo.
-
-FIB · USMS · GTAHUB</pre>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- VIERNES AUDIENCIA -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">05</div>
-        <div class="day-name">// VIERNES</div>
-        <div class="day-theme">Audiencia pública</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Discord</span>
-            <span class="channel-icon">DC</span>
-          </div>
-<pre class="copy-text">🏛️ AUDIENCIA PÚBLICA · HOY [HORA]
-
-El Gobernador [NOMBRE_GOBERNADOR] abre las puertas
-del despacho a propuestas ciudadanas.
-
-¿Tienes un negocio que necesita permisos?
-¿Una crítica al gobierno?
-¿Una idea para Los Santos?
-
-Esta es tu hora. Tu voz cuenta.
-
-Streameado por [STREAMER_OFICIAL].
-Canal de voz: #audiencia-publica</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Twitter / X</span>
-            <span class="channel-icon">X</span>
-          </div>
-<pre class="copy-text">HOY · [HORA] · Audiencia Pública
-
-El Gobernador escucha.
-La pregunta es: ¿qué le vas a decir tú?
-
-Stream: twitch.tv/[STREAMER]</pre>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- FIN DE SEMANA OPEN DAY -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">06</div>
-        <div class="day-name">// SÁB-DOM</div>
-        <div class="day-theme">Open Day</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Discord</span>
-            <span class="channel-icon">DC</span>
-          </div>
-<pre class="copy-text">🎯 OPEN DAY · SÁBADO Y DOMINGO
-
-Todo el fin de semana, las facciones legales
-abren sus puertas a la comunidad civil.
-
-Sábado:
-   · Ride-along con LSPD (cupo limitado)
-   · Tour militar LSAF en bases
-   · Certificación médica express LSES
-
-Domingo:
-   · Visita guiada al Tribunal Superior
-   · Demostración K9 del DOJ
-   · Cierre con conferencia de prensa
-
-Sin compromiso. Solo curiosidad.
-Pero esta podría ser la semana en que decides.
-
-Inscripciones: [LINK]</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Email — Segmento general activo</span>
-            <span class="channel-icon">@</span>
-          </div>
-<pre class="copy-text">ASUNTO:    Este finde puedes vivir Los Santos
-           desde el otro lado.
-PREVIEW:   Open Day del LSPD, LSES, LSAF y más.
-           Tu próximo rol podría empezar acá.</pre>
-        </div>
-
-        <div class="cta-box">
-          <div class="cta-label">▸ MANTRA DE LA SEMANA · CIERRE</div>
-          <p class="cta-mantra">
-            "Toda placa empezó con alguien<br>
-            que <em>se atrevió a aplicar</em>."
-          </p>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-
-  <div class="hashtags-bar" data-reveal>
-    <span class="hashtags-label">▸ Hashtags Sem 2 ·</span>
-    <span class="hashtag">#GTAHUB</span>
-    <span class="hashtag">#FaccionesLegales</span>
-    <span class="hashtag">#LSPD</span>
-    <span class="hashtag">#LSAF</span>
-    <span class="hashtag">#LSES</span>
-    <span class="hashtag">#FIB</span>
-    <span class="hashtag">#ServirYProteger</span>
-    <span class="hashtag">#PuedeSerTuPlaca</span>
-  </div>
-</section>
-
-
-<!-- ============ SEMANA 3 · HUBCOINS ============ -->
-<section id="semana-3" class="week-section week-3">
-  <div class="week-hero">
-    <div data-reveal>
-      <div class="week-id">SEMANA 03 · FIN DE SEMANA HUBS</div>
-      <h2 class="week-name">Fin de Semana<br>HUBCoins</h2>
-      <p class="week-cta-mantra">
-        "Lo que siempre quisiste,<br>
-        <em>esta semana cuesta menos.</em>"
-      </p>
-    </div>
-
-    <div class="week-targets" data-reveal>
-      <div class="target-block">
-        <div class="target-label">▸ TARGET PRINCIPAL</div>
-        <p class="target-content">
-          <strong>Compradores históricos VIP</strong>. Ya pagaron antes,
-          conocen el producto premium, son el segmento más rentable.
-        </p>
-      </div>
-      <div class="target-block">
-        <div class="target-label">▸ TARGET SECUNDARIO</div>
-        <p class="target-content">
-          Compradores ocasionales (60d+ sin compra), <strong>activos que nunca
-          compraron HUBs</strong>, e inactivos 30d+ y 90d+ con descuento como gancho.
-        </p>
-      </div>
-      <div class="target-block">
-        <div class="target-label">▸ OBJETIVO DE CAMPAÑA</div>
-        <p class="target-content">
-          <strong>Maximizar ingresos en 5 días.</strong> Único bloque
-          monetario directo del mes — el equipo entero apunta acá.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="days-stack">
-
-    <!-- TEASERS -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">PRE</div>
-        <div class="day-name">// LUN-MIÉ</div>
-        <div class="day-theme">Teasers</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Discord — Lunes</span>
-            <span class="channel-icon">DC</span>
-          </div>
-<pre class="copy-text">🟢 SE VIENE ALGO ESTE FINDE.
-
-Si ya tienes HUBCoins, vas a querer estar conectado.
-Si no tienes, vas a querer leer el email del jueves.
-
-Tu próximo auto premium puede entrar
-en el carrito al precio que llevas tiempo esperando.
-
-Más info pronto.</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Twitter / X — Lunes</span>
-            <span class="channel-icon">X</span>
-          </div>
-<pre class="copy-text">Calendario de la semana:
-Lun · Mar · Mié → Nada
-Jue → Algo
-Vie → Más
-Sáb → Lo grande
-Dom → Última oportunidad
-
-Mantente atento.</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Email VIP — Miércoles · Acceso anticipado</span>
-            <span class="channel-icon">@</span>
-          </div>
-<pre class="copy-text">ASUNTO:    Acceso anticipado: te lo contamos
-           antes que al resto.
-PREVIEW:   Bundle exclusivo este finde. Solo para
-           quienes ya estuvieron.
-
-[BODY]
-Eres parte de un grupo pequeño.
-
-Este finde lanzamos un bundle que no aparece
-en ninguna red. Solo en este email.
-Solo para ti.
-
-Cupos limitados. Código privado: [VIP_CODE]
-
-[VER BUNDLE EXCLUSIVO →]</pre>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- JUEVES APERTURA -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">04</div>
-        <div class="day-name">// JUEVES</div>
-        <div class="day-theme">Apertura</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Discord</span>
-            <span class="channel-icon">DC</span>
-          </div>
-<pre class="copy-text">🔥 ARRANCÓ EL FIN DE SEMANA HUBS
-
-Desde ahora hasta el domingo:
-   · 20% OFF en todos los packs · Código: HUBSMES
-   · Acceso a bundles exclusivos
-   · Bonificación de HUBs gratis al recargar +1000
-
-Todo lo que viste y dejaste pendiente
-puede ser tuyo este finde.
-
-Tienda: [LINK]</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Email — Segmento activos</span>
-            <span class="channel-icon">@</span>
-          </div>
-<pre class="copy-text">ASUNTO:    4 días. 20%. Empezó.
-PREVIEW:   Código HUBSMES en la tienda.
-           Sábado viene la oferta flash.</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Twitter / X</span>
-            <span class="channel-icon">X</span>
-          </div>
-<pre class="copy-text">20% OFF en HUBs hasta el domingo.
-Código: HUBSMES
-
-Sábado a las [HORA] hay flash de 6h
-con descuento mayor.
-Pongan alarma.
-
-Tu carrito te espera.</pre>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- VIERNES BUNDLES -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">05</div>
-        <div class="day-name">// VIERNES</div>
-        <div class="day-theme">Bundles especiales</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Discord</span>
-            <span class="channel-icon">DC</span>
-          </div>
-<pre class="copy-text">🎁 BUNDLES VIERNES · SOLO HOY
-
-Combos exclusivos disponibles 24 horas:
-   · Pack Auto Premium + 500 HUBs · -25%
-   · Pack Propiedad + Mobiliario + 1000 HUBs · -30%
-   · Pack VIP 30 días + 800 HUBs · -20%
-
-Mañana sábado vuelven los precios normales.
-La oferta flash de mañana NO incluye estos bundles.
-
-Si lo estuviste mirando, hoy es el día.</pre>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- SÁBADO FLASH -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">06</div>
-        <div class="day-name">// SÁBADO</div>
-        <div class="day-theme">⚡ Flash 6h</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Discord — La grande del mes</span>
-            <span class="channel-icon">DC</span>
-          </div>
-<pre class="copy-text">⚡ FLASH 6 HORAS · ACTIVA DE [HORA] A [HORA+6]
-
-40% OFF en todos los packs de HUBs.
-Código: FLASH40
-
-Es el descuento más grande del mes.
-No hay segunda oportunidad hasta el próximo
-Fin de Semana HUBs.
-
-Tienda: [LINK]
-Tu reloj corre.</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Email masivo — TODOS los segmentos</span>
-            <span class="channel-icon">@</span>
-          </div>
-<pre class="copy-text">ASUNTO:    ⚡ 40% OFF · 6 HORAS · ARRANCÓ
-PREVIEW:   Código FLASH40 hasta las [HORA].
-           Esta es la grande del mes.</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Twitter / X</span>
-            <span class="channel-icon">X</span>
-          </div>
-<pre class="copy-text">40% OFF · 6 HORAS · CÓDIGO FLASH40
-
-Hasta las [HORA].
-No hay extensión.
-No hay segunda chance este mes.
-
-[LINK]</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ In-game — Notificación login</span>
-            <span class="channel-icon">IG</span>
-          </div>
-<pre class="copy-text">[FLASH ACTIVA] · 40% en HUBs hasta las [HORA]
-Código FLASH40</pre>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- DOMINGO CIERRE -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">07</div>
-        <div class="day-name">// DOMINGO</div>
-        <div class="day-theme">Última oportunidad</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Discord</span>
-            <span class="channel-icon">DC</span>
-          </div>
-<pre class="copy-text">⏳ ÚLTIMA OPORTUNIDAD · CIERRA HOY 23:59
-
-El descuento del 20% sigue activo hasta medianoche.
-Después vuelven los precios normales hasta el próximo mes.
-
-Si lo estuviste pensando: es hoy o esperar 4 semanas.</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Email — Abrieron pero no compraron</span>
-            <span class="channel-icon">@</span>
-          </div>
-<pre class="copy-text">ASUNTO:    Lo viste. No lo compraste. Quedan horas.
-PREVIEW:   El 20% se va a medianoche. Después no.</pre>
-        </div>
-
-        <div class="cta-box">
-          <div class="cta-label">▸ MANTRA DE LA SEMANA · CIERRE</div>
-          <p class="cta-mantra">
-            "Tu próxima compra grande<br>
-            <em>cuesta lo que vale hoy.</em>"
-          </p>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-
-  <div class="hashtags-bar" data-reveal>
-    <span class="hashtags-label">▸ Hashtags Sem 3 ·</span>
-    <span class="hashtag">#HUBsMes</span>
-    <span class="hashtag">#GTAHUB</span>
-    <span class="hashtag">#HUBCoins</span>
-    <span class="hashtag">#FlashGTAHUB</span>
-    <span class="hashtag">#FinDeSemanaHUBs</span>
-  </div>
-</section>
-
-
-<!-- ============ SEMANA 4 · EVENTO TEMÁTICO ============ -->
-<section id="semana-4" class="week-section week-4">
-  <div class="week-hero">
-    <div data-reveal>
-      <div class="week-id">SEMANA 04 · EVENTO TEMÁTICO</div>
-      <h2 class="week-name">Evento del Mes</h2>
-      <p class="week-cta-mantra">
-        "Lo que pase aquí, no se repite.<br>
-        Y <em>tu nombre puede estar en la historia.</em>"
-      </p>
-    </div>
-
-    <div class="week-targets" data-reveal>
-      <div class="target-block">
-        <div class="target-label">▸ TARGET PRINCIPAL</div>
-        <p class="target-content">
-          <strong>Toda la base activa + audiencia externa.</strong>
-          Es la única semana del mes diseñada para impactar más allá del Discord propio.
-        </p>
-      </div>
-      <div class="target-block">
-        <div class="target-label">▸ TARGET SECUNDARIO</div>
-        <p class="target-content">
-          Jugadores nuevos atraídos por hype mediático.
-          <strong>Inactivos profundos (90d+)</strong> que necesitan un evento grande para volver.
-        </p>
-      </div>
-      <div class="target-block">
-        <div class="target-label">▸ OBJETIVO DE CAMPAÑA</div>
-        <p class="target-content">
-          Pico mediático del mes. <strong>Pico de jugadores simultáneos.</strong>
-          Generación de contenido viral para alimentar las próximas 2-3 semanas.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="days-stack">
-
-    <!-- TEASER -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">T-5</div>
-        <div class="day-name">// 5 DÍAS ANTES</div>
-        <div class="day-theme">Teaser</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Discord — Misterio</span>
-            <span class="channel-icon">DC</span>
-          </div>
-<pre class="copy-text">🎃 SE ACERCA [NOMBRE_EVENTO] EN GTAHUB
-
-Algo está pasando en [UBICACIÓN_TEMÁTICA].
-Los reportes hablan de [GANCHO_NARRATIVO].
-Los noticieros aún no lo cubren.
-
-5 días.
-Quien esté en el lugar correcto,
-escribe la historia que el resto va a leer.
-
-Estate atento.</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Twitter / X — Countdown diario</span>
-            <span class="channel-icon">X</span>
-          </div>
-<pre class="copy-text">Día 5 · Algo se mueve en Vinewood.
-Día 4 · Los rumores empeoran.
-Día 3 · El primer testigo desapareció.
-Día 2 · El gobernador convoca prensa de emergencia.
-Día 1 · Mañana.
-
-¿De qué lado vas a estar?</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ TikTok — Teaser 15s</span>
-            <span class="channel-icon">TK</span>
-          </div>
-          <p class="copy-text-prose">
-            <strong>Visual:</strong> planos cortos, oscuros, perturbadores del mapa con elementos temáticos.<br>
-            <strong>Audio:</strong> silencio + un solo sonido al final (golpe, susurro, sirena).<br>
-            <strong>Texto final:</strong> "[FECHA]. GTAHUB. Tu nombre podría estar entre los primeros."
-          </p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- DÍA 1 LANZAMIENTO -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">01</div>
-        <div class="day-name">// DÍA 1</div>
-        <div class="day-theme">Lanzamiento</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Discord — Post pinneado</span>
-            <span class="channel-icon">DC</span>
-          </div>
-<pre class="copy-text">🎃 [NOMBRE_EVENTO] · ACTIVO HASTA EL [FECHA_FIN]
-
-Lo que estaba pasando en [UBICACIÓN], ya está pasando
-en todo Los Santos.
-
-Disponible esta semana únicamente:
-   · [SKIN/ITEM TEMÁTICO 1]
-   · [SKIN/ITEM TEMÁTICO 2]
-   · [VEHÍCULO LIMITADO]
-   · Misión narrativa especial: [NOMBRE_MISIÓN]
-
-Código de acceso: [CODIGO_EVENTO]
-Da boost de XP x2 + acceso al evento principal.
-
-Después del [FECHA_FIN], no vuelve hasta el año que viene.
-Tu participación, tu rol, tu historia.</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Email masivo — TODOS los segmentos</span>
-            <span class="channel-icon">@</span>
-          </div>
-<pre class="copy-text">ASUNTO:    [NOMBRE_EVENTO] en GTAHUB acaba de empezar.
-PREVIEW:   Items limitados, evento narrativo,
-           código [CODIGO_EVENTO].</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Twitter / X — Trailer pinneado</span>
-            <span class="channel-icon">X</span>
-          </div>
-<pre class="copy-text">[TRAILER 60-90s · PINNEADO]
-
-[NOMBRE_EVENTO]
-Hasta el [FECHA].
-Lo que pase aquí, no se repite.
-
-Tu nombre puede estar en la historia
-que se cuente el año que viene.
-
-Código: [CODIGO_EVENTO]
-[LINK]</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ TikTok / YouTube — Trailer 60-90s</span>
-            <span class="channel-icon">VID</span>
-          </div>
-          <p class="copy-text-prose">
-            <strong>Visual:</strong> producción cuidada de 60-90s con narrativa completa. Casting de los 10 streamers oficiales apareciendo.<br>
-            <strong>Cierre:</strong> "Esto es [NOMBRE_EVENTO]. Esta semana. Solo en GTAHUB. Tu turno empieza ahora."<br>
-            <strong>CTA grabado:</strong> "Código [CODIGO_EVENTO]. Boost x2 los primeros 7 días. Tu historia, tu nombre, tu evento."
-          </p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- DURANTE -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">2-6</div>
-        <div class="day-name">// DURANTE</div>
-        <div class="day-theme">Mantenimiento del hype</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Discord — Boletín cada 2 días</span>
-            <span class="channel-icon">DC</span>
-          </div>
-<pre class="copy-text">📰 BOLETÍN [NOMBRE_EVENTO] · DÍA [X]
-
-Lo que pasó ayer:
-   · [MOMENTO IMPORTANTE 1]
-   · [MOMENTO IMPORTANTE 2]
-   · [PROTAGONISTA INESPERADO]
-
-Lo que viene hoy: [TEASE]
-
-Quedan [X] días.
-Y la historia sigue escribiéndose con quienes estén dentro.</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Twitter / X — Clips diarios</span>
-            <span class="channel-icon">X</span>
-          </div>
-          <p class="copy-text-prose">
-            1 clip por día de algo memorable que pasó en el evento. Mantiene el hype y atrae a quienes no entraron aún. Cada clip cierra con: <strong>"Quedan [X] días. Tu historia podría ser la del próximo clip."</strong>
-          </p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- CIERRE -->
-    <div class="day-block" data-reveal>
-      <div class="day-marker">
-        <div class="day-num">07</div>
-        <div class="day-name">// CIERRE</div>
-        <div class="day-theme">Best-of</div>
-      </div>
-      <div class="copies-grid">
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Discord</span>
-            <span class="channel-icon">DC</span>
-          </div>
-<pre class="copy-text">🎬 [NOMBRE_EVENTO] · CIERRE OFICIAL
-
-Gracias a las [X,XXX] personas que vivieron el evento.
-
-Esta semana publicamos:
-   · Recap completo (YouTube · 10 min)
-   · 12 clips destacados (TikTok)
-   · Stats finales del evento
-   · Ganadores del reto comunitario
-
-¿No estuviste? Tranquilo.
-El próximo gran evento: [TEASER PRÓXIMO MES].
-Tu próxima oportunidad de estar en la historia
-empieza el [FECHA].</pre>
-        </div>
-
-        <div class="copy-card">
-          <div class="copy-channel">
-            <span class="channel-name">▸ Email — Segmento que NO participó</span>
-            <span class="channel-icon">@</span>
-          </div>
-<pre class="copy-text">ASUNTO:    Lo que te perdiste de [NOMBRE_EVENTO].
-PREVIEW:   Recap completo. Y un adelanto del
-           próximo evento. La próxima historia te espera.</pre>
-        </div>
-
-        <div class="cta-box">
-          <div class="cta-label">▸ MANTRA DE LA SEMANA · CIERRE</div>
-          <p class="cta-mantra">
-            "Cada evento grande tiene protagonistas.<br>
-            <em>El próximo puede ser tu nombre.</em>"
-          </p>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-
-  <div class="hashtags-bar" data-reveal>
-    <span class="hashtags-label">▸ Hashtags Sem 4 ·</span>
-    <span class="hashtag">#GTAHUB</span>
-    <span class="hashtag">#[NOMBRE_EVENTO]GTAHUB</span>
-    <span class="hashtag">#EventoGTAHUB</span>
-    <span class="hashtag">#LosSantosEvento</span>
-    <span class="hashtag">#PuedeSerTuMomento</span>
-  </div>
-</section>
-
-
-<!-- ============ RESUMEN ESTRATÉGICO ============ -->
-<section id="resumen">
+<!-- DIAGNÓSTICO -->
+<section id="diagnostico">
   <div class="section-header">
-    <div class="section-num">RES<span>VISTA ESTRATÉGICA</span></div>
+    <div class="section-num">01<span>DIAGNÓSTICO</span></div>
     <div>
-      <h2 class="section-title">Cuatro semanas, <em>cuatro targets</em>.<br>Una sola promesa.</h2>
+      <h2 class="section-title">Lo que ya <em>tenemos</em>.<br>Lo que dejamos perder.</h2>
       <p class="section-intro">
-        Vista panorámica del ciclo mensual. Cada semana habla a un perfil distinto,
-        usa un canal protagonista distinto, y mide una métrica distinta. Pero
-        todas refuerzan el mismo mensaje central.
+        Antes de planificar adónde vamos, hay que ser brutalmente honestos
+        sobre lo que GTAHUB ya construyó y lo que está sin explotar.
       </p>
     </div>
   </div>
 
-  <div class="summary-table-wrap" data-reveal>
-    <table class="summary-table">
+  <div class="diag-grid">
+    <div class="diag-card strength" data-reveal>
+      <div class="diag-tag">▸ Fortaleza · 01</div>
+      <h3 class="diag-headline">Comunidad masiva ya construida</h3>
+      <p class="diag-body">
+        <strong>135,907 miembros en Discord</strong> y picos históricos de
+        2,400 jugadores online. La adquisición de la última década ya está pagada.
+        El reto ahora es activarla, no construirla.
+      </p>
+    </div>
+
+    <div class="diag-card strength" data-reveal>
+      <div class="diag-tag">▸ Fortaleza · 02</div>
+      <h3 class="diag-headline">Sistemas distintivos en producto</h3>
+      <p class="diag-body">
+        Sistema de Dealers rotativo, organizaciones nivel 5 automatizadas,
+        multi-mundo Orion/Andromeda/Pegasus. <strong>Material para vender que la
+        competencia hispana no tiene.</strong>
+      </p>
+    </div>
+
+    <div class="diag-card weakness" data-reveal>
+      <div class="diag-tag">▸ Oportunidad · 01</div>
+      <h3 class="diag-headline">Sin Twitter/X corporativo</h3>
+      <p class="diag-body">
+        Marbella Vice construyó su evento desde Twitter. GTAHUB no tiene
+        cuenta unificada. <strong>Cero costo de apertura, alto retorno
+        de visibilidad pública.</strong>
+      </p>
+    </div>
+
+    <div class="diag-card weakness" data-reveal>
+      <div class="diag-tag">▸ Oportunidad · 02</div>
+      <h3 class="diag-headline">Monetización sin ritmo</h3>
+      <p class="diag-body">
+        HUBCoins se vende sin calendario predecible. <strong>Una promo mensual
+        bien diseñada genera más ingresos que ofertas dispersas.</strong>
+        El usuario aprende a esperar, no a ignorar.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CALENDARIO -->
+<section id="calendario">
+  <div class="section-header">
+    <div class="section-num">02<span>CALENDARIO</span></div>
+    <div>
+      <h2 class="section-title">El mes <em>rotativo</em>.<br>Cuatro semanas. Un motor.</h2>
+      <p class="section-intro">
+        Cada semana tiene tema, mecánica, código y deadline. Después de la cuarta semana,
+        el ciclo se reinicia con variaciones temáticas. La comunidad aprende el ritmo;
+        el equipo deja de reinventar.
+      </p>
+    </div>
+  </div>
+
+  <div class="calendar-wrap">
+    <div class="calendar-header">
+      <div class="calendar-month">Mes Tipo</div>
+      <div class="calendar-meta">// 4 SEMANAS · CICLO REPETIBLE</div>
+    </div>
+
+    <div class="weeks-grid">
+      <div class="week week-1" data-reveal>
+        <div class="week-num">SEMANA <span>01</span></div>
+        <h3 class="week-title">Semana de Organizaciones</h3>
+        <div class="week-tag">Engagement criminal</div>
+        <p class="week-desc">
+          Foco en organizaciones ilegales. Conquistas dobles, AMA con líderes IC,
+          mejor robo de la semana. Storytelling oscuro.
+        </p>
+        <ul class="week-actions">
+          <li>Org of the Week (lunes)</li>
+          <li>Conquista x2 (martes)</li>
+          <li>Mejor robo (miércoles)</li>
+          <li>AMA en Discord (jueves)</li>
+          <li>Trailer criminal (viernes)</li>
+        </ul>
+      </div>
+
+      <div class="week week-2" data-reveal>
+        <div class="week-num">SEMANA <span>02</span></div>
+        <h3 class="week-title">Semana de Facciones Legales</h3>
+        <div class="week-tag">Reclutamiento</div>
+        <p class="week-desc">
+          Highlights diarios por agencia: LSPD, LSES, LSAF, FIB. Audiencia
+          pública del Gobernador. Open Day comunitario.
+        </p>
+        <ul class="week-actions">
+          <li>Día del LSPD (lunes)</li>
+          <li>Día del LSES (martes)</li>
+          <li>Día del LSAF (miércoles)</li>
+          <li>FIB / USMS (jueves)</li>
+          <li>Audiencia pública (viernes)</li>
+        </ul>
+      </div>
+
+      <div class="week week-3" data-reveal>
+        <div class="week-num">SEMANA <span>03</span></div>
+        <h3 class="week-title">Fin de Semana HUBCoins</h3>
+        <div class="week-tag">Monetización</div>
+        <p class="week-desc">
+          Único bloque de venta directa del mes. Email segmentado en 5 buckets,
+          oferta flash sábado, bundles exclusivos.
+        </p>
+        <ul class="week-actions">
+          <li>Teaser segmento VIP</li>
+          <li>Apertura jueves -20%</li>
+          <li>Bundles viernes</li>
+          <li>Flash 6h sábado -40%</li>
+          <li>Cierre domingo</li>
+        </ul>
+      </div>
+
+      <div class="week week-4" data-reveal>
+        <div class="week-num">SEMANA <span>04</span></div>
+        <h3 class="week-title">Evento Temático</h3>
+        <div class="week-tag">Pico mediático</div>
+        <p class="week-desc">
+          Halloween, Aniversario, Verano, San Valentín. Skins limitados,
+          mini-evento IC, los 10 streamers convergen.
+        </p>
+        <ul class="week-actions">
+          <li>Trailer producido 60s</li>
+          <li>Items limitados</li>
+          <li>Mini-evento IC</li>
+          <li>Push pagado modesto</li>
+          <li>Best-of post-evento</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE 30/60 -->
+<section id="timeline">
+  <div class="section-header">
+    <div class="section-num">03<span>EJECUCIÓN</span></div>
+    <div>
+      <h2 class="section-title">30 días para <em>construir</em>.<br>30 más para escalar.</h2>
+      <p class="section-intro">
+        El primer mes monta el motor: segmentación, plantillas, códigos, primer ciclo.
+        El segundo mes es donde la inversión rinde compounding y se ejecuta el
+        primer evento grande de cierre.
+      </p>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-track">
+      <div class="timeline-week" data-reveal>
+        <div class="timeline-week-marker"></div>
+        <div class="timeline-label">SEM 01</div>
+        <div class="timeline-content">Setup<br>Sistemas</div>
+      </div>
+      <div class="timeline-week" data-reveal>
+        <div class="timeline-week-marker"></div>
+        <div class="timeline-label">SEM 02</div>
+        <div class="timeline-content">Lanzamiento<br>Organizaciones</div>
+      </div>
+      <div class="timeline-week" data-reveal>
+        <div class="timeline-week-marker"></div>
+        <div class="timeline-label">SEM 03</div>
+        <div class="timeline-content">Facciones<br>Legales</div>
+      </div>
+      <div class="timeline-week" data-reveal>
+        <div class="timeline-week-marker"></div>
+        <div class="timeline-label">SEM 04</div>
+        <div class="timeline-content">HUBs +<br>Cierre M1</div>
+      </div>
+      <div class="timeline-week" data-reveal>
+        <div class="timeline-week-marker"></div>
+        <div class="timeline-label">SEM 05</div>
+        <div class="timeline-content">Doblar<br>ganadores</div>
+      </div>
+      <div class="timeline-week" data-reveal>
+        <div class="timeline-week-marker"></div>
+        <div class="timeline-label">SEM 06</div>
+        <div class="timeline-content">Pre-evento<br>Temático</div>
+      </div>
+      <div class="timeline-week" data-reveal>
+        <div class="timeline-week-marker"></div>
+        <div class="timeline-label">SEM 07</div>
+        <div class="timeline-content">Evento<br>Grande</div>
+      </div>
+      <div class="timeline-week" data-reveal>
+        <div class="timeline-week-marker"></div>
+        <div class="timeline-label">SEM 08</div>
+        <div class="timeline-content">Cosecha<br>Cierre M2</div>
+      </div>
+    </div>
+
+    <div class="phase-badges">
+      <div class="phase-badge p1" data-reveal>
+        <div class="phase-num">FASE 01 · DÍAS 1–30</div>
+        <h3 class="phase-title">Construir <em>la máquina</em></h3>
+        <p class="phase-desc">
+          Setup de canales (Twitter, TikTok), segmentación de email en 5 buckets,
+          sistema de códigos por streamer, primer ciclo de 4 semanas en vivo.
+          Captura de datos para optimizar mes 2.
+        </p>
+      </div>
+      <div class="phase-badge p2" data-reveal>
+        <div class="phase-num">FASE 02 · DÍAS 31–60</div>
+        <h3 class="phase-title">Escalar <em>lo que rinde</em></h3>
+        <p class="phase-desc">
+          Optimización por datos del mes 1. Personalización avanzada por segmento.
+          Combos cruzados. Primer evento temático grande con coordinación de los 10
+          streamers en simultáneo + push pagado modesto.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KPIs -->
+<section id="kpis">
+  <div class="section-header">
+    <div class="section-num">04<span>PROYECCIÓN</span></div>
+    <div>
+      <h2 class="section-title">Lo que <em>esperamos</em>.<br>Sin inflar nada.</h2>
+      <p class="section-intro">
+        Targets realistas con la base actual y presupuesto modesto. Si todo se
+        ejecuta sin tropiezos mayores, esto es lo que el panel debería mostrar
+        a los 30 y 60 días.
+      </p>
+    </div>
+  </div>
+
+  <div class="kpi-table-wrap" data-reveal>
+    <table class="kpi-table">
       <thead>
         <tr>
-          <th>Semana</th>
-          <th>Edad / Perfil</th>
-          <th>Canal protagonista</th>
-          <th>Métrica clave</th>
-          <th>Promesa central</th>
+          <th>Métrica</th>
+          <th>Día 0</th>
+          <th>Día 30</th>
+          <th>Día 60</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><div class="summary-week">Organizaciones</div></td>
-          <td><div class="summary-prose">16–28 · Rol criminal · Drama oscuro</div></td>
-          <td><div class="summary-prose">Discord + TikTok</div></td>
-          <td><div class="summary-prose">Engagement criminal · Reactivación</div></td>
-          <td><div class="summary-prose">"Puede ser tu organización."</div></td>
+          <td>Ingresos HUBCoins (vs. baseline)</td>
+          <td class="kpi-baseline">100%</td>
+          <td class="kpi-target">+25–40%</td>
+          <td class="kpi-target-2">+60–100%</td>
         </tr>
         <tr>
-          <td><div class="summary-week">Facciones Legales</div></td>
-          <td><div class="summary-prose">18–35 · Rol vocacional · Disciplina</div></td>
-          <td><div class="summary-prose">Discord + YouTube</div></td>
-          <td><div class="summary-prose">Aplicaciones a facciones</div></td>
-          <td><div class="summary-prose">"Puede ser tu placa."</div></td>
+          <td>Reactivaciones acumuladas</td>
+          <td class="kpi-baseline">No medido</td>
+          <td class="kpi-target">1,200–2,500</td>
+          <td class="kpi-target-2">3,500–6,500</td>
         </tr>
         <tr>
-          <td><div class="summary-week">HUBCoins</div></td>
-          <td><div class="summary-prose">Compradores históricos + activos</div></td>
-          <td><div class="summary-prose">Email + In-game</div></td>
-          <td><div class="summary-prose">Ingresos directos</div></td>
-          <td><div class="summary-prose">"Lo que querías, hoy es tuyo."</div></td>
+          <td>Jugadores nuevos atribuibles</td>
+          <td class="kpi-baseline">0</td>
+          <td class="kpi-target">600–1,500</td>
+          <td class="kpi-target-2">2,000–4,500</td>
         </tr>
         <tr>
-          <td><div class="summary-week">Evento Temático</div></td>
-          <td><div class="summary-prose">Toda la base + externos</div></td>
-          <td><div class="summary-prose">Twitter + TikTok + Trailer</div></td>
-          <td><div class="summary-prose">Pico simultáneo + viralidad</div></td>
-          <td><div class="summary-prose">"Tu nombre en la historia."</div></td>
+          <td>Tasa apertura email promedio</td>
+          <td class="kpi-baseline">No optimizada</td>
+          <td class="kpi-target">25–35%</td>
+          <td class="kpi-target-2">40–55%</td>
+        </tr>
+        <tr>
+          <td>Engagement Discord en posts campaña</td>
+          <td class="kpi-baseline">Baseline</td>
+          <td class="kpi-target">+60%</td>
+          <td class="kpi-target-2">+120–150%</td>
+        </tr>
+        <tr>
+          <td>LTV por usuario activo</td>
+          <td class="kpi-baseline">Baseline</td>
+          <td class="kpi-target">+5–10%</td>
+          <td class="kpi-target-2">+20–35%</td>
+        </tr>
+        <tr>
+          <td>Predictibilidad de ingresos</td>
+          <td class="kpi-baseline">Baja</td>
+          <td class="kpi-target">Media</td>
+          <td class="kpi-target-2">Alta</td>
         </tr>
       </tbody>
     </table>
   </div>
 </section>
 
+<!-- EQUIPO -->
+<section id="equipo">
+  <div class="section-header">
+    <div class="section-num">05<span>EQUIPO</span></div>
+    <div>
+      <h2 class="section-title">Quién <em>ejecuta</em>.<br>Roles para 3–5 personas.</h2>
+      <p class="section-intro">
+        El plan está diseñado para un equipo pequeño pero con cobertura completa.
+        Cada rol tiene responsabilidades claras; cuando son menos personas, los roles
+        se solapan en orden de prioridad.
+      </p>
+    </div>
+  </div>
+
+  <div class="team-grid">
+    <div class="team-card" data-reveal>
+      <div class="team-num">01</div>
+      <div class="team-icon">M</div>
+      <h3 class="team-role">Lead Marketing</h3>
+      <p class="team-desc">
+        Estrategia, presupuesto, relaciones con creadores, reportes mensuales,
+        decisiones de qué se escala y qué se descarta.
+      </p>
+    </div>
+
+    <div class="team-card" data-reveal>
+      <div class="team-num">02</div>
+      <div class="team-icon">C</div>
+      <h3 class="team-role">Community / Social</h3>
+      <p class="team-desc">
+        Twitter, TikTok, Discord. Coordinación con los 10 streamers. Atención a
+        comunidad y publicación según calendario semanal.
+      </p>
+    </div>
+
+    <div class="team-card" data-reveal>
+      <div class="team-num">03</div>
+      <div class="team-icon">E</div>
+      <h3 class="team-role">Editor / Clipper</h3>
+      <p class="team-desc">
+        Clips diarios de TikTok, trailers semanales, miniaturas, edición de
+        contenido in-game para amplificación social.
+      </p>
+    </div>
+
+    <div class="team-card" data-reveal>
+      <div class="team-num">04</div>
+      <div class="team-icon">T</div>
+      <h3 class="team-role">Tech / Data</h3>
+      <p class="team-desc">
+        Sistema de códigos, dashboards de tracking, segmentación de emails,
+        landing pages, atribución por canal y por streamer.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- STREAMERS -->
+<section>
+  <div class="section-header">
+    <div class="section-num">06<span>DISTRIBUCIÓN</span></div>
+    <div>
+      <h2 class="section-title">10 streamers, <em>4 semanas</em>.<br>Sin quemar a nadie.</h2>
+      <p class="section-intro">
+        Cada streamer tiene una semana protagónica al mes y participa del evento mensual.
+        Esto es ~6–8 horas obligatorias de contenido alineado al mes, compatible con
+        su mínimo contractual de 3h semanales.
+      </p>
+    </div>
+  </div>
+
+  <div class="streamers-section">
+    <table class="streamers-table">
+      <thead>
+        <tr>
+          <th>Semana</th>
+          <th>Asignados</th>
+          <th>Rol en la campaña</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-reveal>
+          <td class="week-cell">Organizaciones</td>
+          <td class="role-cell">2–3 STREAMERS / CRIMINAL</td>
+          <td class="desc-cell">
+            Streamers con personajes criminales activos centran sus directos
+            en historias de organización, golpes, conquistas de dealer.
+          </td>
+        </tr>
+        <tr data-reveal>
+          <td class="week-cell">Facciones Legales</td>
+          <td class="role-cell">2–3 STREAMERS / LEGAL</td>
+          <td class="desc-cell">
+            Streamers con personajes en LSPD, LSES, LSAF o FIB centran sus
+            directos en operativos, casos federales, ride-alongs comunitarios.
+          </td>
+        </tr>
+        <tr data-reveal>
+          <td class="week-cell">HUBCoins</td>
+          <td class="role-cell">1–2 STREAMERS / GENERAL</td>
+          <td class="desc-cell">
+            Streamers generalistas promueven el descuento con su código personal.
+            Cada compra atribuible queda registrada para ranking interno mensual.
+          </td>
+        </tr>
+        <tr data-reveal>
+          <td class="week-cell">Evento Temático</td>
+          <td class="role-cell">LOS 10 CONVERGEN</td>
+          <td class="desc-cell">
+            Una vez al mes, todos los streamers oficiales coordinan presencia
+            en el evento. Es el único momento donde el casting completo aparece.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- RIESGOS -->
+<section id="riesgos">
+  <div class="section-header">
+    <div class="section-num">07<span>RIESGOS</span></div>
+    <div>
+      <h2 class="section-title">Lo que <em>puede</em> salir mal.</h2>
+      <p class="section-intro">
+        Tres puntos a vigilar activamente. No son hipotéticos: cada uno tiene
+        probabilidad real de aparecer en el ciclo de 60 días.
+      </p>
+    </div>
+  </div>
+
+  <div class="risks">
+    <div class="risk-card" data-reveal>
+      <div class="risk-num">01</div>
+      <h3 class="risk-title">Saturación de comunicación</h3>
+      <p class="risk-body">
+        Email semanal + Discord diario + redes constantes pueden fatigar la audiencia.
+        Si la tasa de apertura cae en mes 2, hay que espaciar o segmentar más fino.
+      </p>
+    </div>
+
+    <div class="risk-card" data-reveal>
+      <div class="risk-num">02</div>
+      <h3 class="risk-title">Dependencia de los streamers</h3>
+      <p class="risk-body">
+        Si dos abandonan o pelean con el staff, el plan se resiente. Tener 2–3 streamers
+        reserva listos para entrar al programa oficial es una salvaguarda esencial.
+      </p>
+    </div>
+
+    <div class="risk-card" data-reveal>
+      <div class="risk-num">03</div>
+      <h3 class="risk-title">Capacidad de servidor</h3>
+      <p class="risk-body">
+        El sábado del fin de semana de HUBs es pico de tráfico. Una caída en el día
+        de mayor venta del mes es desastre. Coordinación con infra es no-negociable.
+      </p>
+    </div>
+  </div>
+</section>
 
 <!-- CIERRE -->
 <section class="cierre">
-  <div class="cierre-bg"></div>
-  <p class="cierre-quote">
-    "No estamos vendiendo un servidor.<br>
-    <em>Estamos invitando a alguien</em><br>
-    a ser el protagonista de su propia historia."
-  </p>
-  <a href="#manifesto" class="cierre-cta">VOLVER AL INICIO</a>
+  <div class="cierre-quote">
+    "No estamos construyendo audiencia. <em>La construimos hace seis años.</em><br>
+    Ahora toca activarla con un ritmo que la comunidad pueda sentir."
+  </div>
+  <div class="cierre-stats">
+    <div class="cierre-stat">
+      <div class="cierre-stat-num">04</div>
+      <div class="cierre-stat-label">Semanas rotativas</div>
+    </div>
+    <div class="cierre-stat">
+      <div class="cierre-stat-num">10</div>
+      <div class="cierre-stat-label">Streamers oficiales</div>
+    </div>
+    <div class="cierre-stat">
+      <div class="cierre-stat-num">05</div>
+      <div class="cierre-stat-label">Buckets de email</div>
+    </div>
+    <div class="cierre-stat">
+      <div class="cierre-stat-num">60</div>
+      <div class="cierre-stat-label">Días de plan</div>
+    </div>
+  </div>
 </section>
 
 <footer>
   <div>GTAHUB · PROPUESTA INTERNA · 2026</div>
-  <div>// PLAN DE MERCADOTECNIA · COPYS · v1.0</div>
+  <div>// PLAN DE MERCADOTECNIA · v1.0</div>
 </footer>
 
 <script>
@@ -2393,45 +1704,68 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 
 document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
 
 // Smooth scroll para nav
-document.querySelectorAll('.nav-links a, .cierre-cta').forEach(link => {
+document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', (e) => {
-    const href = link.getAttribute('href');
-    if (href && href.startsWith('#')) {
-      e.preventDefault();
-      const target = document.querySelector(href);
-      if (target) {
-        window.scrollTo({
-          top: target.offsetTop - 70,
-          behavior: 'smooth'
-        });
-      }
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      window.scrollTo({
+        top: target.offsetTop - 80,
+        behavior: 'smooth'
+      });
     }
   });
 });
 
-// Click-to-copy en bloques de copy
-document.querySelectorAll('.copy-text').forEach(block => {
-  block.style.cursor = 'pointer';
-  block.title = 'Click para copiar';
-  block.addEventListener('click', () => {
-    const text = block.innerText;
-    navigator.clipboard.writeText(text).then(() => {
-      const original = block.style.borderColor;
-      block.style.borderColor = 'var(--accent)';
-      block.style.boxShadow = '0 0 20px var(--accent)';
-      setTimeout(() => {
-        block.style.borderColor = original;
-        block.style.boxShadow = '';
-      }, 600);
+// Parallax sutil en hero cards
+const heroCards = document.querySelectorAll('.hero-card');
+const heroVisual = document.querySelector('.hero-visual');
+if (heroVisual) {
+  heroVisual.addEventListener('mousemove', (e) => {
+    const rect = heroVisual.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    heroCards.forEach((card, i) => {
+      const factor = (i + 1) * 8;
+      card.style.transform = `translate(${x * factor}px, ${y * factor}px) rotate(${-3 + i * 2}deg)`;
     });
   });
-});
+  heroVisual.addEventListener('mouseleave', () => {
+    heroCards.forEach((card, i) => {
+      card.style.transform = '';
+    });
+  });
+}
 </script>
 
+<script>
+
+// Eleevate / GTAHUB transitions between HTML documents
+(function(){
+  document.body.classList.add('page-enter');
+  const transition = document.getElementById('pageTransition');
+  if (!transition) return;
+
+  document.querySelectorAll('a.page-link').forEach(link => {
+    link.addEventListener('click', function(e){
+      const href = this.getAttribute('href');
+      if (!href || href.startsWith('#') || href === window.location.pathname.split('/').pop()) return;
+      e.preventDefault();
+      const label = transition.querySelector('.page-transition-label');
+      if (label) {
+        const clean = this.textContent.trim() || 'Loading';
+        label.innerHTML = clean + '<small>Eleevate MX × GTAHUB</small>';
+      }
+      transition.classList.add('active');
+      setTimeout(() => { window.location.href = href; }, 680);
+    });
+  });
+})();
+</script>
 </body>
 </html>
