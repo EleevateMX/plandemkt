@@ -931,6 +931,65 @@ footer img { height: 24px; opacity: 0.6; }
   to { width: 100%; }
 }
 
+
+
+/* ============ TOP HUB BACK BUTTON ============ */
+.nav-left-group {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 14px;
+  border: 1px solid var(--line-strong);
+  background: rgba(255,255,255,0.045);
+  color: var(--ink-dim);
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: all .3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-home-btn::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 14px var(--accent);
+}
+
+.nav-home-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);
+  transform: translateX(-110%);
+  transition: transform .45s ease;
+}
+
+.nav-home-btn:hover {
+  color: var(--ink);
+  border-color: var(--accent);
+  box-shadow: 0 0 22px rgba(0, 212, 255, .16);
+  transform: translateY(-2px);
+}
+
+.nav-home-btn:hover::after { transform: translateX(110%); }
+
+@media (max-width: 640px) {
+  .nav-left-group { gap: 10px; }
+  .nav-home-btn { padding: 8px 10px; font-size: 9px; letter-spacing: .1em; }
+}
+
 /* ============ RESPONSIVE ============ */
 @media (max-width: 1024px) {
   .hero { padding: 120px 24px 60px; }
@@ -1105,19 +1164,15 @@ body.page-enter {
   </div>
 </div>
 
-<!-- HUB NAVIGATION DOCK -->
-<div class="hub-dock" aria-label="Navegación entre documentos">
-  <a href="index.html" class="page-link">Inicio</a>
-  <a href="plan.html" class="page-link ">Plan</a>
-  <a href="semana.html" class="page-link active">Semana</a>
-</div>
-
 
 <!-- NAV -->
 <nav class="nav">
-  <div class="nav-logo">
-    <img src="https://i.imgur.com/xFAZQVy.png" alt="GTAHUB" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'">
-    <span class="nav-logo-fallback" style="display:none">GTAHUB</span>
+  <div class="nav-left-group">
+    <div class="nav-logo">
+      <img src="https://i.imgur.com/xFAZQVy.png" alt="GTAHUB" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'">
+      <span class="nav-logo-fallback" style="display:none">GTAHUB</span>
+    </div>
+    <a href="index.html" class="nav-home-btn page-link">Inicio</a>
   </div>
   <ul class="nav-links">
     <li><a href="#manifesto">Manifiesto</a></li>
