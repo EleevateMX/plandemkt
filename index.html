@@ -2781,30 +2781,56 @@ const Demo = {
   tips(anim){ return TIPS[anim] || ['Mantén una técnica controlada en todo el rango.','Respira: exhala al esfuerzo, inhala al regreso.','Calidad sobre cantidad.']; }
 };
 
-/* ====================== Cloud (Firebase scaffold) ======================
-   Para activar sync entre dispositivos:
-   1. Crea proyecto en console.firebase.google.com
-   2. Habilita Firestore (modo producción) y agrega regla:
-        match /members/{id} { allow read, write: if true; }   // demo - endurece después
-   3. En config del proyecto -> Web -> copia el objeto firebaseConfig
-   4. Pega aquí abajo en Cloud.config y guarda.
-   La app sigue funcionando con localStorage si no la configuras.
+/* ====================== Cloud (Supabase) ======================
+   Sync entre dispositivos en tiempo real con Postgres + Realtime.
+   Setup (una sola vez, ~5 min):
+   1. Crea cuenta y proyecto gratis en https://supabase.com/dashboard
+   2. Pega tu Project URL y Anon Key abajo en Cloud.url y Cloud.anonKey
+      (Settings → API)
+   3. En SQL Editor corre:
+        create table members (
+          numero text primary key,
+          data jsonb not null,
+          updated_at timestamptz default now()
+        );
+        alter table members enable row level security;
+        create policy "open" on members for all using (true) with check (true);
+        alter publication supabase_realtime add table members;
+        create table templates (
+          id text primary key,
+          data jsonb not null,
+          updated_at timestamptz default now()
+        );
+        alter table templates enable row level security;
+        create policy "open" on templates for all using (true) with check (true);
+        alter publication supabase_realtime add table templates;
+        create table checkins (
+          id bigserial primary key,
+          numero text not null,
+          ts bigint not null,
+          date text not null
+        );
+        alter table checkins enable row level security;
+        create policy "open" on checkins for all using (true) with check (true);
+   4. Guarda. La app detecta config y prende sync automáticamente.
+   Free tier: 500MB DB, 50K usuarios activos/mes, 2GB transfer.
 */
 const Cloud = {
-  config: null, // <-- pega tu firebaseConfig aquí: { apiKey, authDomain, projectId, ... }
-  db: null, _fs: null, ready: false,
+  url: null,      // <-- pega tu Supabase Project URL aquí (e.g. 'https://xxxx.supabase.co')
+  anonKey: null,  // <-- pega tu anon key aquí (es pública)
+  client: null, ready: false, _sub: null,
 
   async init(){
-    if(!this.config) return false;
+    if(!this.url || !this.anonKey) return false;
     try{
-      const appMod = await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js');
-      const fs = await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
-      const app = appMod.initializeApp(this.config);
-      this.db = fs.getFirestore(app);
-      this._fs = fs;
+      const mod = await import('https://esm.sh/@supabase/supabase-js@2');
+      this.client = mod.createClient(this.url, this.anonKey, {
+        realtime: { params: { eventsPerSecond: 5 } }
+      });
       this.ready = true;
-      console.log('Cloud ready');
-      this.pullAll().catch(()=>{});
+      console.log('Cloud ready (Supabase)');
+      await this.pullAll();
+      this.subscribe();
       return true;
     }catch(e){
       console.warn('Cloud init failed:', e);
@@ -2815,31 +2841,94 @@ const Cloud = {
   async saveMember(member){
     if(!this.ready) return;
     try{
-      const ref = this._fs.doc(this.db, 'members', member.numero);
-      await this._fs.setDoc(ref, JSON.parse(JSON.stringify(member)));
-    }catch(e){ console.warn('Cloud save fail:', e); }
+      const { error } = await this.client.from('members').upsert({
+        numero: member.numero,
+        data: JSON.parse(JSON.stringify(member)),
+        updated_at: new Date().toISOString()
+      });
+      if(error) console.warn('Cloud save fail:', error);
+    }catch(e){ console.warn('Cloud save threw:', e); }
+  },
+
+  async saveTemplate(tpl){
+    if(!this.ready) return;
+    try{
+      await this.client.from('templates').upsert({
+        id: tpl.id,
+        data: JSON.parse(JSON.stringify(tpl)),
+        updated_at: new Date().toISOString()
+      });
+    }catch(e){ console.warn('Cloud tpl save fail:', e); }
+  },
+
+  async deleteTemplate(id){
+    if(!this.ready) return;
+    try{ await this.client.from('templates').delete().eq('id', id); }catch(e){}
+  },
+
+  async logCheckIn(numero){
+    if(!this.ready) return;
+    try{
+      await this.client.from('checkins').insert({
+        numero, ts: Date.now(), date: todayISO()
+      });
+    }catch(e){ console.warn('Cloud checkin fail:', e); }
   },
 
   async pullAll(){
     if(!this.ready) return null;
     try{
-      const snap = await this._fs.getDocs(this._fs.collection(this.db,'members'));
-      const remote = snap.docs.map(d=>d.data());
-      if(remote.length){
-        // merge: prefer remote when conflict, but keep local sessions intact
+      const [{ data: members }, { data: tpls }] = await Promise.all([
+        this.client.from('members').select('numero,data'),
+        this.client.from('templates').select('id,data')
+      ]);
+      if(members && members.length){
+        const remote = members.map(r => r.data);
         const local = Store.all();
-        const localByNum = Object.fromEntries(local.map(m=>[m.numero,m]));
-        const merged = remote.map(r => ({ ...(localByNum[r.numero]||{}), ...r }));
-        // include any local-only members (e.g. ADMIN seed)
-        local.forEach(m=>{ if(!merged.find(x=>x.numero===m.numero)) merged.push(m); });
+        const byNum = Object.fromEntries(local.map(m => [m.numero, m]));
+        const merged = remote.map(r => ({ ...(byNum[r.numero]||{}), ...r }));
+        local.forEach(m => { if(!merged.find(x => x.numero === m.numero)) merged.push(m); });
         Store.saveAll(merged);
       }
-      return remote;
+      if(tpls && tpls.length){
+        const remote = tpls.map(t => t.data);
+        localStorage.setItem(Store.KEY_TEMPLATES, JSON.stringify(remote));
+      }
+      return true;
     }catch(e){ console.warn('Cloud pull fail:', e); return null; }
   },
 
+  // Realtime: cuando admin crea una rutina, el socio la ve aparecer
+  subscribe(){
+    if(!this.ready || this._sub) return;
+    this._sub = this.client.channel('roma-sync')
+      .on('postgres_changes', { event:'*', schema:'public', table:'members' }, (payload) => {
+        if(payload.new && payload.new.data){
+          const m = payload.new.data;
+          const arr = Store.all();
+          const i = arr.findIndex(x => x.numero === m.numero);
+          if(i >= 0) arr[i] = { ...arr[i], ...m }; else arr.push(m);
+          Store.saveAll(arr);
+          // Update current user reference if it's the logged-in member
+          if(App.user && App.user.numero === m.numero){
+            App.user = arr.find(x => x.numero === m.numero);
+            if(App.view === 'home') App.renderHome();
+            if(App.view === 'profile') App.renderProfile();
+          }
+          if(App.view === 'admin') App.renderAdmin();
+          if(App.view === 'admin-member' && payload.new.numero === App._lastViewedMember){
+            App.openMember(App._lastViewedMember);
+          }
+        }
+      })
+      .on('postgres_changes', { event:'*', schema:'public', table:'templates' }, () => {
+        if(App.view === 'templates') App.openTemplates();
+      })
+      .subscribe();
+  },
+
   badge(){
-    return `<span class="cloud-status ${this.ready?'on':''}"><span class="dot"></span>${this.ready?'Sync activo':'Solo en este dispositivo'}</span>`;
+    return `<span class="cloud-status ${this.ready?'on':''}"><span class="dot"></span>${this.ready?'Sync activo (Supabase)':'Solo en este dispositivo'}</span>`;
   }
 };
 
@@ -4085,6 +4174,7 @@ const App = {
   openMember(numero){
     const m = Store.find(numero);
     if(!m) return;
+    this._lastViewedMember = numero;
     $('#am-title').textContent = m.nombre;
     const p = m.profile || {};
     const last5 = (m.workouts||[]).slice(-5).reverse();
@@ -4359,7 +4449,9 @@ const App = {
       Cloud.saveMember(updated);
     }
     if(saveAsTpl || !s.memberNumero){
-      Store.saveTemplate({ ...routine, id: 'tpl_' + Date.now().toString(36), isTemplate:true });
+      const tpl = { ...routine, id: 'tpl_' + Date.now().toString(36), isTemplate:true };
+      Store.saveTemplate(tpl);
+      Cloud.saveTemplate(tpl);
     }
 
     Toast.show('Rutina guardada', 'success');
@@ -4456,6 +4548,7 @@ const App = {
     const checkins = (u.checkins||[]).concat([{ ts: Date.now(), date: todayISO() }]);
     this.user = Store.update(this.user.numero, { checkins });
     Cloud.saveMember(this.user);
+    Cloud.logCheckIn(this.user.numero);
     Modal.close();
     Toast.show('✓ Check-in registrado en el gym', 'success');
   },
