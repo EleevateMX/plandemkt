@@ -1,0 +1,26 @@
+{
+  "name": "Roma App — RomaGym",
+  "short_name": "Roma",
+  "description": "App oficial de RomaGym. Rutinas personalizadas por nivel y objetivo.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#070707",
+  "theme_color": "#070707",
+  "lang": "es-MX",
+  "icons": [
+    {
+      "src": "icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
