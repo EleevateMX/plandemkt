@@ -1,4 +1,4 @@
-const CACHE = 'roma-app-v2';
+const CACHE = 'roma-app-v3';
 const ASSETS = [
   './',
   './index.html',

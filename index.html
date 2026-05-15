@@ -285,21 +285,41 @@ h3.display{font-size:24px;}
 
 /* ============ Hero (home) ============ */
 .hero{
-  position:relative;padding:22px 20px 24px;border-radius:22px;
+  position:relative;padding:22px 20px 22px;border-radius:22px;
   background:
-    radial-gradient(400px 200px at 90% -10%, rgba(212,175,55,.18), transparent 70%),
-    linear-gradient(180deg,rgba(212,175,55,.06),rgba(255,255,255,.02));
-  border:1px solid rgba(212,175,55,.18);
-  overflow:hidden;margin-bottom:18px;
+    radial-gradient(420px 220px at 90% -10%, rgba(212,175,55,.22), transparent 70%),
+    radial-gradient(380px 250px at -10% 110%, rgba(212,175,55,.12), transparent 60%),
+    linear-gradient(180deg,rgba(212,175,55,.08),rgba(255,255,255,.02));
+  border:1px solid rgba(212,175,55,.22);
+  overflow:hidden;margin-bottom:18px;min-height:200px;
+  display:flex;gap:14px;align-items:stretch;
+  box-shadow:0 24px 60px -30px rgba(212,175,55,.4),inset 0 1px 0 rgba(255,255,255,.04);
 }
 .hero::before{
-  content:"";position:absolute;right:-40px;bottom:-40px;width:220px;height:220px;
+  content:"";position:absolute;right:-60px;bottom:-60px;width:260px;height:260px;
   border-radius:50%;
-  background:radial-gradient(circle,rgba(212,175,55,.18),transparent 70%);
-  filter:blur(2px);
+  background:radial-gradient(circle,rgba(212,175,55,.2),transparent 70%);
+  filter:blur(2px);pointer-events:none;
 }
-.hero h2{font-size:38px;line-height:.95;margin-bottom:8px;}
-.hero p{color:var(--muted);font-size:14px;}
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(212,175,55,.04) 1px,transparent 1px),
+    linear-gradient(90deg, rgba(212,175,55,.04) 1px,transparent 1px);
+  background-size:22px 22px;
+  mask-image:radial-gradient(ellipse at 50% 50%, black 30%, transparent 80%);
+}
+.hero-text{flex:1;min-width:0;position:relative;z-index:2;}
+.hero-figure{
+  position:relative;z-index:1;flex-shrink:0;width:140px;height:200px;
+  margin-right:-10px;align-self:center;
+}
+.hero-figure .rg-figure{
+  height:200px;max-width:140px;margin:0;
+  filter:drop-shadow(0 16px 24px rgba(212,175,55,.5));
+}
+.hero h2{font-size:36px;line-height:.95;margin-bottom:8px;}
+.hero p{color:var(--muted);font-size:14px;max-width:160px;}
 .streak-pill{
   display:inline-flex;align-items:center;gap:8px;
   padding:6px 12px;border-radius:999px;
@@ -659,290 +679,499 @@ small.muted{font-size:11px;letter-spacing:.04em;}
 .demo-card{
   position:relative;border-radius:18px;overflow:hidden;
   background:
-    radial-gradient(400px 200px at 50% 0%, rgba(212,175,55,.18), transparent 70%),
-    linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
-  border:1px solid rgba(212,175,55,.22);
-  padding:18px 14px 14px;margin-bottom:14px;
+    radial-gradient(420px 240px at 50% 30%, rgba(212,175,55,.22), transparent 70%),
+    linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.01));
+  border:1px solid rgba(212,175,55,.26);
+  padding:22px 14px 16px;margin-bottom:14px;
+  box-shadow:0 20px 50px -22px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.04);
 }
 .demo-card::before{
   content:"";position:absolute;inset:0;
   background-image:
     linear-gradient(rgba(212,175,55,.05) 1px,transparent 1px),
     linear-gradient(90deg, rgba(212,175,55,.05) 1px,transparent 1px);
-  background-size:18px 18px;
+  background-size:20px 20px;
   mask-image:radial-gradient(ellipse at center, black 30%, transparent 80%);
   pointer-events:none;
 }
-.rg-figure{
-  display:block;width:100%;max-width:280px;height:240px;margin:0 auto;
-  filter:drop-shadow(0 8px 18px rgba(212,175,55,.25));
+.demo-card::after{
+  content:"";position:absolute;left:50%;top:88%;transform:translateX(-50%);
+  width:140px;height:14px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(212,175,55,.28),transparent 70%);
+  filter:blur(2px);
+  animation:rg-shadow 3.4s cubic-bezier(0.42,0,0.58,1) infinite;
+  pointer-events:none;
 }
+@keyframes rg-shadow{
+  0%,100%{transform:translate(-50%,0) scaleX(1);opacity:.9;}
+  50%{transform:translate(-50%,0) scaleX(.86);opacity:.6;}
+}
+
+.rg-figure{
+  display:block;width:100%;max-width:300px;height:260px;margin:0 auto;
+  filter:drop-shadow(0 14px 24px rgba(212,175,55,.32));
+  overflow:visible;
+  transform-origin:100px 130px;
+  transform-box:view-box;
+  animation:rg-breath 3.6s cubic-bezier(0.42,0,0.58,1) infinite;
+}
+@keyframes rg-breath{
+  0%,100%{transform:translateY(0) scale(1);}
+  50%{transform:translateY(-2px) scale(1.006);}
+}
+
 .rg-figure .ground{stroke:rgba(212,175,55,.25);stroke-width:2;stroke-dasharray:4 4;}
-.rg-figure .stick{stroke:url(#rgStick);stroke-width:4;stroke-linecap:round;fill:none;}
+.rg-figure .stick{stroke:url(#rgStick);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;fill:none;}
 .rg-figure .stick-thin{stroke:url(#rgStick);stroke-width:3;stroke-linecap:round;fill:none;}
-.rg-figure .head{stroke:url(#rgStick);stroke-width:3;fill:none;}
+.rg-figure .head{stroke:url(#rgStick);stroke-width:3.5;fill:rgba(212,175,55,.06);}
 .rg-figure .hand,.rg-figure .foot{fill:url(#rgGold);}
-.rg-figure .bar{stroke:url(#rgGold);stroke-width:4;stroke-linecap:round;}
+.rg-figure .bar{stroke:url(#rgGold);stroke-width:5;stroke-linecap:round;}
 .rg-figure .plate{fill:url(#rgGold);}
 .rg-figure .bench{fill:rgba(212,175,55,.22);stroke:rgba(212,175,55,.4);stroke-width:1;}
-.rg-figure .bar-fixed{stroke:rgba(212,175,55,.6);stroke-width:5;stroke-linecap:round;}
-.rg-figure .cable{stroke:rgba(212,175,55,.5);stroke-width:2;stroke-dasharray:3 2;fill:none;}
-.rg-figure .machine{fill:none;stroke:rgba(212,175,55,.4);stroke-width:2;}
+.rg-figure .bar-fixed{stroke:rgba(212,175,55,.55);stroke-width:5;stroke-linecap:round;}
+.rg-figure .cable{stroke:rgba(212,175,55,.4);stroke-width:2;stroke-dasharray:3 2;fill:none;}
+.rg-figure .machine{fill:none;stroke:rgba(212,175,55,.35);stroke-width:2;}
 
-/* All animated groups share base transform-box for proper rotation */
-.rg-figure .anim{transform-box:fill-box;transform-origin:center;}
-.rg-figure g[class*="arm-"],
-.rg-figure g[class*="leg-"],
-.rg-figure g[class*="forearm-"],
-.rg-figure g[class*="shin-"],
-.rg-figure .torso,
-.rg-figure .head-grp,
-.rg-figure .bar-grp,
-.rg-figure .body-grp{
-  transform-box:view-box;
-  will-change:transform;
+/* Default subtle motions for parts not explicitly animated (so nothing looks frozen) */
+.rg-figure .head-grp{transform-box:view-box;animation:rg-head-idle 4.2s ease-in-out infinite;}
+@keyframes rg-head-idle{
+  0%,100%{transform:translateY(0) rotate(0deg);}
+  25%{transform:translateY(.6px) rotate(.6deg);}
+  75%{transform:translateY(-.6px) rotate(-.6deg);}
+}
+.rg-figure .hand-l,.rg-figure .hand-r,
+.rg-figure .foot-l,.rg-figure .foot-r{transform-box:view-box;}
+
+/* ============ PRESS OVERHEAD (militar / Arnold) ============ */
+.rg-figure[data-anim="press_overhead"] .forearm-l{animation:po-fl 2.4s cubic-bezier(.42,.05,.58,.95) infinite;}
+.rg-figure[data-anim="press_overhead"] .forearm-r{animation:po-fr 2.4s cubic-bezier(.42,.05,.58,.95) infinite;}
+.rg-figure[data-anim="press_overhead"] .bar-grp{animation:po-bar 2.4s cubic-bezier(.42,.05,.58,.95) infinite;}
+.rg-figure[data-anim="press_overhead"] .thigh-l,
+.rg-figure[data-anim="press_overhead"] .thigh-r{animation:po-knee 2.4s cubic-bezier(.42,.05,.58,.95) infinite;}
+.rg-figure[data-anim="press_overhead"] .head-grp{animation:po-head 2.4s cubic-bezier(.42,.05,.58,.95) infinite!important;}
+.rg-figure[data-anim="press_overhead"] .torso{animation:po-torso 2.4s cubic-bezier(.42,.05,.58,.95) infinite;}
+@keyframes po-fl{
+  0%,100%{transform:rotate(0deg);}
+  10%{transform:rotate(-10deg);}
+  22%{transform:rotate(-30deg);}
+  48%{transform:rotate(-176deg);}
+  52%{transform:rotate(-184deg);}
+  60%{transform:rotate(-178deg);}
+  88%{transform:rotate(-14deg);}
+}
+@keyframes po-fr{
+  0%,100%{transform:rotate(0deg);}
+  10%{transform:rotate(10deg);}
+  22%{transform:rotate(30deg);}
+  48%{transform:rotate(176deg);}
+  52%{transform:rotate(184deg);}
+  60%{transform:rotate(178deg);}
+  88%{transform:rotate(14deg);}
+}
+@keyframes po-bar{
+  0%,100%{transform:translateY(40px);}
+  10%{transform:translateY(46px);}
+  22%{transform:translateY(38px);}
+  48%{transform:translateY(-1px);}
+  52%{transform:translateY(-5px);}
+  60%{transform:translateY(0);}
+  88%{transform:translateY(42px);}
+}
+@keyframes po-knee{
+  0%,22%,100%{transform:rotate(0deg);}
+  10%{transform:rotate(-5deg);}
+  14%{transform:rotate(-6deg);}
+  18%{transform:rotate(-3deg);}
+}
+@keyframes po-head{
+  0%,100%{transform:rotate(0deg);}
+  50%{transform:rotate(-10deg);}
+  60%{transform:rotate(-8deg);}
+}
+@keyframes po-torso{
+  0%,100%{transform:rotate(0deg) translateY(0);}
+  14%{transform:rotate(0deg) translateY(2px);}
+  50%{transform:rotate(-1.5deg) translateY(-2px);}
 }
 
-/* ===== PRESS OVERHEAD (press militar) ===== */
-.rg-figure[data-anim="press_overhead"] .forearm-l{
-  transform-origin:78px 110px;
-  animation:po-forearm-l 2.2s ease-in-out infinite;
+/* ============ PRESS BENCH ============ */
+.rg-figure[data-anim="press_bench"] .forearm-l{animation:pb-fl 2.3s cubic-bezier(.5,.02,.5,.98) infinite;}
+.rg-figure[data-anim="press_bench"] .forearm-r{animation:pb-fr 2.3s cubic-bezier(.5,.02,.5,.98) infinite;}
+.rg-figure[data-anim="press_bench"] .bar-grp{animation:pb-bar 2.3s cubic-bezier(.5,.02,.5,.98) infinite;}
+.rg-figure[data-anim="press_bench"] .upper-arm-l{animation:pb-ul 2.3s cubic-bezier(.5,.02,.5,.98) infinite;}
+.rg-figure[data-anim="press_bench"] .upper-arm-r{animation:pb-ur 2.3s cubic-bezier(.5,.02,.5,.98) infinite;}
+.rg-figure[data-anim="press_bench"] .torso{animation:pb-torso 2.3s ease-in-out infinite;}
+@keyframes pb-fl{
+  0%,100%{transform:translateY(0);}
+  12%{transform:translateY(4px);}
+  48%{transform:translateY(-32px);}
+  56%{transform:translateY(-34px);}
+  90%{transform:translateY(-2px);}
 }
-.rg-figure[data-anim="press_overhead"] .forearm-r{
-  transform-origin:122px 110px;
-  animation:po-forearm-r 2.2s ease-in-out infinite;
+@keyframes pb-fr{
+  0%,100%{transform:translateY(0);}
+  12%{transform:translateY(4px);}
+  48%{transform:translateY(-32px);}
+  56%{transform:translateY(-34px);}
+  90%{transform:translateY(-2px);}
 }
-.rg-figure[data-anim="press_overhead"] .bar-grp{
-  transform-origin:100px 50px;
-  animation:po-bar 2.2s ease-in-out infinite;
+@keyframes pb-bar{
+  0%,100%{transform:translateY(0);}
+  12%{transform:translateY(4px);}
+  48%{transform:translateY(-32px);}
+  56%{transform:translateY(-34px);}
+  90%{transform:translateY(-2px);}
 }
-@keyframes po-forearm-l{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-180deg)}}
-@keyframes po-forearm-r{0%,100%{transform:rotate(0deg)}50%{transform:rotate(180deg)}}
-@keyframes po-bar{0%,100%{transform:translateY(70px)}50%{transform:translateY(0)}}
+@keyframes pb-ul{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-4deg);}}
+@keyframes pb-ur{0%,100%{transform:rotate(0deg);}50%{transform:rotate(4deg);}}
+@keyframes pb-torso{0%,100%{transform:scaleY(1);}50%{transform:scaleY(1.02);}}
 
-/* ===== PRESS BENCH ===== */
-.rg-figure[data-anim="press_bench"] .forearm-l{
-  transform-origin:80px 124px;
-  animation:pb-forearm 2.2s ease-in-out infinite;
+/* ============ FLYE ============ */
+.rg-figure[data-anim="flye"] .upper-arm-l{animation:fy-l 2.6s cubic-bezier(.45,.02,.55,.98) infinite;}
+.rg-figure[data-anim="flye"] .upper-arm-r{animation:fy-r 2.6s cubic-bezier(.45,.02,.55,.98) infinite;}
+.rg-figure[data-anim="flye"] .forearm-l{animation:fy-fl 2.6s cubic-bezier(.45,.02,.55,.98) infinite;}
+.rg-figure[data-anim="flye"] .forearm-r{animation:fy-fr 2.6s cubic-bezier(.45,.02,.55,.98) infinite;}
+@keyframes fy-l{
+  0%,100%{transform:rotate(0deg);}
+  10%{transform:rotate(-4deg);}
+  50%{transform:rotate(-72deg);}
+  56%{transform:rotate(-76deg);}
+  90%{transform:rotate(-6deg);}
 }
-.rg-figure[data-anim="press_bench"] .forearm-r{
-  transform-origin:120px 124px;
-  animation:pb-forearm 2.2s ease-in-out infinite;
+@keyframes fy-r{
+  0%,100%{transform:rotate(0deg);}
+  10%{transform:rotate(4deg);}
+  50%{transform:rotate(72deg);}
+  56%{transform:rotate(76deg);}
+  90%{transform:rotate(6deg);}
 }
-.rg-figure[data-anim="press_bench"] .bar-grp{
-  transform-origin:100px 100px;
-  animation:pb-bar 2.2s ease-in-out infinite;
-}
-@keyframes pb-forearm{0%,100%{transform:translateY(0)}50%{transform:translateY(-30px)}}
-@keyframes pb-bar{0%,100%{transform:translateY(0)}50%{transform:translateY(-30px)}}
+@keyframes fy-fl{0%,100%{transform:rotate(0deg);}50%{transform:rotate(8deg);}}
+@keyframes fy-fr{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-8deg);}}
 
-/* ===== FLYE (aperturas / pec deck) ===== */
-.rg-figure[data-anim="flye"] .arm-l{
-  transform-origin:100px 95px;
-  animation:fly-l 2.4s ease-in-out infinite;
+/* ============ DIP ============ */
+.rg-figure[data-anim="dip"] .figure-root{animation:dip-body 2.5s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="dip"] .head-grp{animation:dip-head 2.5s ease-in-out infinite!important;}
+.rg-figure[data-anim="dip"] .upper-arm-l{animation:dip-ul 2.5s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="dip"] .upper-arm-r{animation:dip-ur 2.5s cubic-bezier(.45,.05,.55,.95) infinite;}
+@keyframes dip-body{
+  0%,100%{transform:translateY(0);}
+  10%{transform:translateY(3px);}
+  50%{transform:translateY(28px);}
+  55%{transform:translateY(30px);}
+  88%{transform:translateY(2px);}
 }
-.rg-figure[data-anim="flye"] .arm-r{
-  transform-origin:100px 95px;
-  animation:fly-r 2.4s ease-in-out infinite;
-}
-@keyframes fly-l{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-55deg)}}
-@keyframes fly-r{0%,100%{transform:rotate(0deg)}50%{transform:rotate(55deg)}}
+@keyframes dip-head{0%,100%{transform:rotate(0deg);}50%{transform:rotate(6deg);}}
+@keyframes dip-ul{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-22deg);}}
+@keyframes dip-ur{0%,100%{transform:rotate(0deg);}50%{transform:rotate(22deg);}}
 
-/* ===== DIP (fondos) ===== */
-.rg-figure[data-anim="dip"] .body-grp{
-  transform-origin:100px 80px;
-  animation:dip-body 2.4s ease-in-out infinite;
+/* ============ CURL BICEP ============ */
+.rg-figure[data-anim="curl_bicep"] .forearm-l{animation:cu-l 2.2s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="curl_bicep"] .forearm-r{animation:cu-r 2.2s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="curl_bicep"] .upper-arm-l{animation:cu-ul 2.2s ease-in-out infinite;}
+.rg-figure[data-anim="curl_bicep"] .upper-arm-r{animation:cu-ur 2.2s ease-in-out infinite;}
+.rg-figure[data-anim="curl_bicep"] .torso{animation:cu-torso 2.2s ease-in-out infinite;}
+.rg-figure[data-anim="curl_bicep"] .head-grp{animation:cu-head 2.2s ease-in-out infinite!important;}
+@keyframes cu-l{
+  0%,100%{transform:rotate(0deg);}
+  10%{transform:rotate(-6deg);}
+  48%{transform:rotate(136deg);}
+  54%{transform:rotate(142deg);}
+  62%{transform:rotate(138deg);}
+  90%{transform:rotate(8deg);}
 }
-@keyframes dip-body{0%,100%{transform:translateY(0)}50%{transform:translateY(28px)}}
+@keyframes cu-r{
+  0%,100%{transform:rotate(0deg);}
+  10%{transform:rotate(6deg);}
+  48%{transform:rotate(-136deg);}
+  54%{transform:rotate(-142deg);}
+  62%{transform:rotate(-138deg);}
+  90%{transform:rotate(-8deg);}
+}
+@keyframes cu-ul{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-4deg);}}
+@keyframes cu-ur{0%,100%{transform:rotate(0deg);}50%{transform:rotate(4deg);}}
+@keyframes cu-torso{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-2px);}
+}
+@keyframes cu-head{
+  0%,100%{transform:rotate(0deg);}
+  50%{transform:rotate(4deg);}
+}
 
-/* ===== CURL BICEP ===== */
-.rg-figure[data-anim="curl_bicep"] .forearm-l{
-  transform-origin:78px 135px;
-  animation:curl-l 2s ease-in-out infinite;
+/* ============ EXTENSION TRICEP ============ */
+.rg-figure[data-anim="extension_tricep"] .forearm-l{animation:tr-l 2s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="extension_tricep"] .forearm-r{animation:tr-r 2s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="extension_tricep"] .head-grp{animation:tr-head 2s ease-in-out infinite!important;}
+@keyframes tr-l{
+  0%,100%{transform:rotate(100deg);}
+  10%{transform:rotate(104deg);}
+  50%{transform:rotate(-4deg);}
+  56%{transform:rotate(-8deg);}
+  64%{transform:rotate(0deg);}
+  90%{transform:rotate(94deg);}
 }
-.rg-figure[data-anim="curl_bicep"] .forearm-r{
-  transform-origin:122px 135px;
-  animation:curl-r 2s ease-in-out infinite;
+@keyframes tr-r{
+  0%,100%{transform:rotate(-100deg);}
+  10%{transform:rotate(-104deg);}
+  50%{transform:rotate(4deg);}
+  56%{transform:rotate(8deg);}
+  64%{transform:rotate(0deg);}
+  90%{transform:rotate(-94deg);}
 }
-@keyframes curl-l{0%,100%{transform:rotate(0deg)}50%{transform:rotate(140deg)}}
-@keyframes curl-r{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-140deg)}}
+@keyframes tr-head{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-3deg);}}
 
-/* ===== EXTENSION TRICEP (push-down en polea) ===== */
-.rg-figure[data-anim="extension_tricep"] .forearm-l{
-  transform-origin:78px 115px;
-  animation:tri-l 2s ease-in-out infinite;
+/* ============ PULLDOWN ============ */
+.rg-figure[data-anim="pulldown"] .upper-arm-l{animation:pd-ul 2.5s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="pulldown"] .upper-arm-r{animation:pd-ur 2.5s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="pulldown"] .forearm-l{animation:pd-fl 2.5s ease-in-out infinite;}
+.rg-figure[data-anim="pulldown"] .forearm-r{animation:pd-fr 2.5s ease-in-out infinite;}
+.rg-figure[data-anim="pulldown"] .bar-grp{animation:pd-bar 2.5s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="pulldown"] .torso{animation:pd-torso 2.5s ease-in-out infinite;}
+@keyframes pd-ul{
+  0%,100%{transform:rotate(-22deg);}
+  10%{transform:rotate(-26deg);}
+  50%{transform:rotate(-95deg);}
+  56%{transform:rotate(-100deg);}
+  88%{transform:rotate(-26deg);}
 }
-.rg-figure[data-anim="extension_tricep"] .forearm-r{
-  transform-origin:122px 115px;
-  animation:tri-r 2s ease-in-out infinite;
+@keyframes pd-ur{
+  0%,100%{transform:rotate(22deg);}
+  10%{transform:rotate(26deg);}
+  50%{transform:rotate(95deg);}
+  56%{transform:rotate(100deg);}
+  88%{transform:rotate(26deg);}
 }
-@keyframes tri-l{0%,100%{transform:rotate(100deg)}50%{transform:rotate(0deg)}}
-@keyframes tri-r{0%,100%{transform:rotate(-100deg)}50%{transform:rotate(0deg)}}
+@keyframes pd-fl{0%,100%{transform:rotate(0deg);}50%{transform:rotate(8deg);}}
+@keyframes pd-fr{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-8deg);}}
+@keyframes pd-bar{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(54px);}
+  56%{transform:translateY(56px);}
+}
+@keyframes pd-torso{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-3deg);}}
 
-/* ===== PULLDOWN (jalón al pecho) ===== */
-.rg-figure[data-anim="pulldown"] .arm-l{
-  transform-origin:100px 95px;
-  animation:pd-arm-l 2.4s ease-in-out infinite;
+/* ============ PULLUP ============ */
+.rg-figure[data-anim="pullup"] .figure-root{animation:pu-body 2.6s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="pullup"] .upper-arm-l{animation:pu-ul 2.6s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="pullup"] .upper-arm-r{animation:pu-ur 2.6s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="pullup"] .thigh-l{animation:pu-leg 2.6s ease-in-out infinite;}
+.rg-figure[data-anim="pullup"] .thigh-r{animation:pu-leg-r 2.6s ease-in-out infinite;}
+.rg-figure[data-anim="pullup"] .head-grp{animation:pu-head 2.6s ease-in-out infinite!important;}
+@keyframes pu-body{
+  0%,100%{transform:translateY(28px);}
+  10%{transform:translateY(30px);}
+  50%{transform:translateY(-2px);}
+  56%{transform:translateY(-6px);}
+  90%{transform:translateY(24px);}
 }
-.rg-figure[data-anim="pulldown"] .arm-r{
-  transform-origin:100px 95px;
-  animation:pd-arm-r 2.4s ease-in-out infinite;
-}
-.rg-figure[data-anim="pulldown"] .bar-grp{
-  transform-origin:100px 40px;
-  animation:pd-bar 2.4s ease-in-out infinite;
-}
-@keyframes pd-arm-l{0%,100%{transform:rotate(-30deg)}50%{transform:rotate(-90deg)}}
-@keyframes pd-arm-r{0%,100%{transform:rotate(30deg)}50%{transform:rotate(90deg)}}
-@keyframes pd-bar{0%,100%{transform:translateY(0)}50%{transform:translateY(55px)}}
+@keyframes pu-ul{0%,100%{transform:rotate(0deg);}50%{transform:rotate(8deg);}}
+@keyframes pu-ur{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-8deg);}}
+@keyframes pu-leg{0%,100%{transform:rotate(0deg);}50%{transform:rotate(8deg);}}
+@keyframes pu-leg-r{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-8deg);}}
+@keyframes pu-head{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-4deg);}}
 
-/* ===== PULLUP (dominadas) ===== */
-.rg-figure[data-anim="pullup"] .body-grp{
-  transform-origin:100px 50px;
-  animation:pu-body 2.6s ease-in-out infinite;
+/* ============ ROW BENT ============ */
+.rg-figure[data-anim="row_bent"] .forearm-l{animation:rb-l 2.3s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="row_bent"] .forearm-r{animation:rb-r 2.3s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="row_bent"] .upper-arm-l{animation:rb-ul 2.3s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="row_bent"] .upper-arm-r{animation:rb-ur 2.3s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="row_bent"] .bar-grp{animation:rb-bar 2.3s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="row_bent"] .torso{animation:rb-torso 2.3s ease-in-out infinite;}
+@keyframes rb-l{0%,100%{transform:rotate(0deg);}50%{transform:rotate(72deg);}56%{transform:rotate(78deg);}}
+@keyframes rb-r{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-72deg);}56%{transform:rotate(-78deg);}}
+@keyframes rb-ul{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-22deg);}}
+@keyframes rb-ur{0%,100%{transform:rotate(0deg);}50%{transform:rotate(22deg);}}
+@keyframes rb-bar{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-42px);}
+  56%{transform:translateY(-44px);}
 }
-@keyframes pu-body{0%,100%{transform:translateY(28px)}50%{transform:translateY(0)}}
+@keyframes rb-torso{0%,100%{transform:rotate(0deg);}50%{transform:rotate(2deg);}}
 
-/* ===== ROW BENT (remo) ===== */
-.rg-figure[data-anim="row_bent"] .forearm-l{
-  transform-origin:88px 130px;
-  animation:row-l 2.4s ease-in-out infinite;
+/* ============ DEADLIFT ============ */
+.rg-figure[data-anim="deadlift"] .figure-root{animation:dl-rot 2.8s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="deadlift"] .bar-grp{animation:dl-bar 2.8s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="deadlift"] .thigh-l{animation:dl-th-l 2.8s ease-in-out infinite;}
+.rg-figure[data-anim="deadlift"] .thigh-r{animation:dl-th-r 2.8s ease-in-out infinite;}
+.rg-figure[data-anim="deadlift"] .shin-l,
+.rg-figure[data-anim="deadlift"] .shin-r{animation:dl-shin 2.8s ease-in-out infinite;}
+.rg-figure[data-anim="deadlift"] .upper-arm-l{animation:dl-ul 2.8s ease-in-out infinite;}
+.rg-figure[data-anim="deadlift"] .upper-arm-r{animation:dl-ur 2.8s ease-in-out infinite;}
+.rg-figure[data-anim="deadlift"] .head-grp{animation:dl-head 2.8s ease-in-out infinite!important;}
+@keyframes dl-rot{
+  0%,100%{transform:rotate(38deg);}
+  10%{transform:rotate(42deg);}
+  50%{transform:rotate(0deg);}
+  56%{transform:rotate(-2deg);}
+  60%{transform:rotate(0deg);}
+  90%{transform:rotate(34deg);}
 }
-.rg-figure[data-anim="row_bent"] .forearm-r{
-  transform-origin:122px 130px;
-  animation:row-r 2.4s ease-in-out infinite;
+@keyframes dl-bar{
+  0%,100%{transform:translateY(20px);}
+  10%{transform:translateY(22px);}
+  50%{transform:translateY(-32px);}
+  56%{transform:translateY(-34px);}
+  90%{transform:translateY(14px);}
 }
-.rg-figure[data-anim="row_bent"] .bar-grp{
-  transform-origin:100px 175px;
-  animation:row-bar 2.4s ease-in-out infinite;
-}
-@keyframes row-l{0%,100%{transform:rotate(0deg)}50%{transform:rotate(70deg)}}
-@keyframes row-r{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-70deg)}}
-@keyframes row-bar{0%,100%{transform:translateY(0)}50%{transform:translateY(-40px)}}
+@keyframes dl-th-l{0%,100%{transform:rotate(0deg);}50%{transform:rotate(8deg);}}
+@keyframes dl-th-r{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-8deg);}}
+@keyframes dl-shin{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-6deg);}}
+@keyframes dl-ul{0%,100%{transform:rotate(0deg);}50%{transform:rotate(2deg);}}
+@keyframes dl-ur{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-2deg);}}
+@keyframes dl-head{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-6deg);}}
 
-/* ===== DEADLIFT (peso muerto) ===== */
-.rg-figure[data-anim="deadlift"] .body-grp{
-  transform-origin:100px 140px;
-  animation:dl-body 2.8s ease-in-out infinite;
+/* ============ SQUAT ============ */
+.rg-figure[data-anim="squat"] .figure-root{animation:sq-body 2.6s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="squat"] .thigh-l{animation:sq-th-l 2.6s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="squat"] .thigh-r{animation:sq-th-r 2.6s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="squat"] .shin-l{animation:sq-sh-l 2.6s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="squat"] .shin-r{animation:sq-sh-r 2.6s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="squat"] .torso{animation:sq-torso 2.6s ease-in-out infinite;}
+.rg-figure[data-anim="squat"] .bar-grp{animation:sq-bar 2.6s ease-in-out infinite;}
+.rg-figure[data-anim="squat"] .head-grp{animation:sq-head 2.6s ease-in-out infinite!important;}
+@keyframes sq-body{
+  0%,100%{transform:translateY(0);}
+  10%{transform:translateY(4px);}
+  50%{transform:translateY(32px);}
+  56%{transform:translateY(34px);}
+  90%{transform:translateY(2px);}
 }
-.rg-figure[data-anim="deadlift"] .bar-grp{
-  transform-origin:100px 200px;
-  animation:dl-bar 2.8s ease-in-out infinite;
+@keyframes sq-th-l{
+  0%,100%{transform:rotate(0deg);}
+  50%{transform:rotate(-34deg);}
+  56%{transform:rotate(-36deg);}
 }
-@keyframes dl-body{0%,100%{transform:rotate(40deg) translateY(20px)}50%{transform:rotate(0deg) translateY(0)}}
-@keyframes dl-bar{0%,100%{transform:translateY(20px)}50%{transform:translateY(-30px)}}
+@keyframes sq-th-r{
+  0%,100%{transform:rotate(0deg);}
+  50%{transform:rotate(34deg);}
+  56%{transform:rotate(36deg);}
+}
+@keyframes sq-sh-l{0%,100%{transform:rotate(0deg);}50%{transform:rotate(42deg);}}
+@keyframes sq-sh-r{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-42deg);}}
+@keyframes sq-torso{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-8deg);}}
+@keyframes sq-bar{0%,100%{transform:translateY(0);}50%{transform:translateY(2px);}}
+@keyframes sq-head{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-4deg);}}
 
-/* ===== SQUAT (sentadilla) ===== */
-.rg-figure[data-anim="squat"] .body-grp{
-  transform-origin:100px 145px;
-  animation:sq-body 2.6s ease-in-out infinite;
+/* ============ LATERAL RAISE ============ */
+.rg-figure[data-anim="lateral_raise"] .upper-arm-l{animation:lr-l 2.2s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="lateral_raise"] .upper-arm-r{animation:lr-r 2.2s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="lateral_raise"] .torso{animation:lr-torso 2.2s ease-in-out infinite;}
+.rg-figure[data-anim="lateral_raise"] .head-grp{animation:lr-head 2.2s ease-in-out infinite!important;}
+@keyframes lr-l{
+  0%,100%{transform:rotate(15deg);}
+  10%{transform:rotate(18deg);}
+  50%{transform:rotate(-82deg);}
+  56%{transform:rotate(-86deg);}
+  90%{transform:rotate(10deg);}
 }
-.rg-figure[data-anim="squat"] .leg-l{
-  transform-origin:96px 145px;
-  animation:sq-leg-l 2.6s ease-in-out infinite;
+@keyframes lr-r{
+  0%,100%{transform:rotate(-15deg);}
+  10%{transform:rotate(-18deg);}
+  50%{transform:rotate(82deg);}
+  56%{transform:rotate(86deg);}
+  90%{transform:rotate(-10deg);}
 }
-.rg-figure[data-anim="squat"] .leg-r{
-  transform-origin:104px 145px;
-  animation:sq-leg-r 2.6s ease-in-out infinite;
-}
-.rg-figure[data-anim="squat"] .shin-l{
-  transform-origin:80px 190px;
-  animation:sq-shin-l 2.6s ease-in-out infinite;
-}
-.rg-figure[data-anim="squat"] .shin-r{
-  transform-origin:120px 190px;
-  animation:sq-shin-r 2.6s ease-in-out infinite;
-}
-@keyframes sq-body{0%,100%{transform:translateY(0)}50%{transform:translateY(30px)}}
-@keyframes sq-leg-l{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-30deg)}}
-@keyframes sq-leg-r{0%,100%{transform:rotate(0deg)}50%{transform:rotate(30deg)}}
-@keyframes sq-shin-l{0%,100%{transform:rotate(0deg)}50%{transform:rotate(40deg)}}
-@keyframes sq-shin-r{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-40deg)}}
+@keyframes lr-torso{0%,100%{transform:translateY(0);}50%{transform:translateY(-2px);}}
+@keyframes lr-head{0%,100%{transform:rotate(0deg);}50%{transform:rotate(2deg);}}
 
-/* ===== LATERAL RAISE ===== */
-.rg-figure[data-anim="lateral_raise"] .arm-l{
-  transform-origin:100px 95px;
-  animation:lr-l 2.2s ease-in-out infinite;
+/* ============ REAR DELT FLY ============ */
+.rg-figure[data-anim="rear_delt_fly"] .upper-arm-l{animation:rd-l 2.4s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="rear_delt_fly"] .upper-arm-r{animation:rd-r 2.4s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="rear_delt_fly"] .torso{animation:rd-torso 2.4s ease-in-out infinite;}
+@keyframes rd-l{
+  0%,100%{transform:rotate(0deg);}
+  50%{transform:rotate(-92deg);}
+  56%{transform:rotate(-96deg);}
 }
-.rg-figure[data-anim="lateral_raise"] .arm-r{
-  transform-origin:100px 95px;
-  animation:lr-r 2.2s ease-in-out infinite;
+@keyframes rd-r{
+  0%,100%{transform:rotate(0deg);}
+  50%{transform:rotate(92deg);}
+  56%{transform:rotate(96deg);}
 }
-@keyframes lr-l{0%,100%{transform:rotate(15deg)}50%{transform:rotate(-75deg)}}
-@keyframes lr-r{0%,100%{transform:rotate(-15deg)}50%{transform:rotate(75deg)}}
+@keyframes rd-torso{0%,100%{transform:rotate(0deg);}50%{transform:rotate(1deg);}}
 
-/* ===== REAR DELT FLY ===== */
-.rg-figure[data-anim="rear_delt_fly"] .arm-l{
-  transform-origin:88px 110px;
-  animation:rdl 2.4s ease-in-out infinite;
+/* ============ SHRUG ============ */
+.rg-figure[data-anim="shrug"] .figure-root{animation:sh-body 1.6s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="shrug"] .upper-arm-l{animation:sh-ul 1.6s ease-in-out infinite;}
+.rg-figure[data-anim="shrug"] .upper-arm-r{animation:sh-ur 1.6s ease-in-out infinite;}
+.rg-figure[data-anim="shrug"] .head-grp{animation:sh-head 1.6s ease-in-out infinite!important;}
+@keyframes sh-body{
+  0%,100%{transform:translateY(0);}
+  10%{transform:translateY(2px);}
+  50%{transform:translateY(-10px);}
+  56%{transform:translateY(-12px);}
 }
-.rg-figure[data-anim="rear_delt_fly"] .arm-r{
-  transform-origin:112px 110px;
-  animation:rdr 2.4s ease-in-out infinite;
-}
-@keyframes rdl{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-90deg)}}
-@keyframes rdr{0%,100%{transform:rotate(0deg)}50%{transform:rotate(90deg)}}
+@keyframes sh-ul{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-4deg);}}
+@keyframes sh-ur{0%,100%{transform:rotate(0deg);}50%{transform:rotate(4deg);}}
+@keyframes sh-head{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
 
-/* ===== SHRUG (encogimientos) ===== */
-.rg-figure[data-anim="shrug"] .body-grp{
-  transform-origin:100px 95px;
-  animation:shr 1.8s ease-in-out infinite;
+/* ============ CALF RAISE ============ */
+.rg-figure[data-anim="calf_raise"] .figure-root{animation:cr-body 1.7s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="calf_raise"] .shin-l,
+.rg-figure[data-anim="calf_raise"] .shin-r{animation:cr-shin 1.7s ease-in-out infinite;}
+@keyframes cr-body{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-16px);}
+  56%{transform:translateY(-18px);}
 }
-@keyframes shr{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes cr-shin{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-4deg);}}
 
-/* ===== CALF RAISE ===== */
-.rg-figure[data-anim="calf_raise"] .body-grp{
-  transform-origin:100px 200px;
-  animation:cr 1.8s ease-in-out infinite;
+/* ============ CRUNCH ============ */
+.rg-figure[data-anim="crunch"] .torso-up{animation:cn-torso 2.2s cubic-bezier(.45,.05,.55,.95) infinite;}
+.rg-figure[data-anim="crunch"] .head-grp{animation:cn-head 2.2s ease-in-out infinite!important;}
+@keyframes cn-torso{
+  0%,100%{transform:rotate(0deg);}
+  10%{transform:rotate(-2deg);}
+  50%{transform:rotate(-38deg);}
+  56%{transform:rotate(-42deg);}
+  90%{transform:rotate(-4deg);}
 }
-@keyframes cr{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes cn-head{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-6deg);}}
 
-/* ===== CRUNCH ===== */
-.rg-figure[data-anim="crunch"] .torso-up{
-  transform-origin:100px 165px;
-  animation:cru 2.2s ease-in-out infinite;
+/* ============ LEG RAISE ============ */
+.rg-figure[data-anim="leg_raise"] .leg-grp{animation:lg-legs 2.4s cubic-bezier(.45,.05,.55,.95) infinite;}
+@keyframes lg-legs{
+  0%,100%{transform:rotate(0deg);}
+  10%{transform:rotate(4deg);}
+  50%{transform:rotate(-66deg);}
+  56%{transform:rotate(-70deg);}
+  90%{transform:rotate(-4deg);}
 }
-@keyframes cru{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-35deg)}}
 
-/* ===== LEG RAISE ===== */
-.rg-figure[data-anim="leg_raise"] .leg-grp{
-  transform-origin:100px 130px;
-  animation:lr-legs 2.4s ease-in-out infinite;
+/* ============ PLANK ============ */
+.rg-figure[data-anim="plank"] .figure-root{animation:pl-breath 2.4s ease-in-out infinite;}
+.rg-figure[data-anim="plank"] .torso{animation:pl-torso 2.4s ease-in-out infinite;}
+.rg-figure[data-anim="plank"] .head-grp{animation:pl-head 2.4s ease-in-out infinite!important;}
+@keyframes pl-breath{
+  0%,100%{transform:translateY(0) scaleY(1);}
+  50%{transform:translateY(-1.5px) scaleY(1.01);}
 }
-@keyframes lr-legs{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-65deg)}}
+@keyframes pl-torso{0%,100%{transform:scaleX(1);}50%{transform:scaleX(1.01);}}
+@keyframes pl-head{0%,100%{transform:rotate(0deg);}50%{transform:rotate(4deg);}}
 
-/* ===== PLANK ===== */
-.rg-figure[data-anim="plank"] .body-grp{
-  transform-origin:100px 130px;
-  animation:plk 2.6s ease-in-out infinite;
-}
-@keyframes plk{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-3px) rotate(-1deg)}}
-
-/* ===== CARDIO RUN ===== */
-.rg-figure[data-anim="cardio_run"] .leg-l{
-  transform-origin:100px 140px;
-  animation:run-l .6s ease-in-out infinite;
-}
-.rg-figure[data-anim="cardio_run"] .leg-r{
-  transform-origin:100px 140px;
-  animation:run-r .6s ease-in-out infinite;
-}
-.rg-figure[data-anim="cardio_run"] .arm-l{
-  transform-origin:100px 95px;
-  animation:run-arm-l .6s ease-in-out infinite;
-}
-.rg-figure[data-anim="cardio_run"] .arm-r{
-  transform-origin:100px 95px;
-  animation:run-arm-r .6s ease-in-out infinite;
-}
-.rg-figure[data-anim="cardio_run"] .body-grp{
-  animation:run-bounce .3s ease-in-out infinite;
-}
-@keyframes run-l{0%,100%{transform:rotate(35deg)}50%{transform:rotate(-35deg)}}
-@keyframes run-r{0%,100%{transform:rotate(-35deg)}50%{transform:rotate(35deg)}}
-@keyframes run-arm-l{0%,100%{transform:rotate(-35deg)}50%{transform:rotate(35deg)}}
-@keyframes run-arm-r{0%,100%{transform:rotate(35deg)}50%{transform:rotate(-35deg)}}
-@keyframes run-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+/* ============ CARDIO RUN ============ */
+.rg-figure[data-anim="cardio_run"] .thigh-l{animation:rn-th-l .56s cubic-bezier(.5,0,.5,1) infinite;}
+.rg-figure[data-anim="cardio_run"] .thigh-r{animation:rn-th-r .56s cubic-bezier(.5,0,.5,1) infinite;}
+.rg-figure[data-anim="cardio_run"] .shin-l{animation:rn-sh-l .56s ease-in-out infinite;}
+.rg-figure[data-anim="cardio_run"] .shin-r{animation:rn-sh-r .56s ease-in-out infinite;}
+.rg-figure[data-anim="cardio_run"] .upper-arm-l{animation:rn-arm-l .56s cubic-bezier(.5,0,.5,1) infinite;}
+.rg-figure[data-anim="cardio_run"] .upper-arm-r{animation:rn-arm-r .56s cubic-bezier(.5,0,.5,1) infinite;}
+.rg-figure[data-anim="cardio_run"] .forearm-l{animation:rn-fa-l .56s ease-in-out infinite;}
+.rg-figure[data-anim="cardio_run"] .forearm-r{animation:rn-fa-r .56s ease-in-out infinite;}
+.rg-figure[data-anim="cardio_run"] .figure-root{animation:rn-bounce .28s ease-in-out infinite;}
+.rg-figure[data-anim="cardio_run"] .torso{animation:rn-torso .56s ease-in-out infinite;}
+.rg-figure[data-anim="cardio_run"] .head-grp{animation:rn-head .56s ease-in-out infinite!important;}
+@keyframes rn-th-l{0%,100%{transform:rotate(38deg);}50%{transform:rotate(-38deg);}}
+@keyframes rn-th-r{0%,100%{transform:rotate(-38deg);}50%{transform:rotate(38deg);}}
+@keyframes rn-sh-l{0%{transform:rotate(0deg);}50%{transform:rotate(-50deg);}100%{transform:rotate(0deg);}}
+@keyframes rn-sh-r{0%{transform:rotate(-50deg);}50%{transform:rotate(0deg);}100%{transform:rotate(-50deg);}}
+@keyframes rn-arm-l{0%,100%{transform:rotate(-32deg);}50%{transform:rotate(32deg);}}
+@keyframes rn-arm-r{0%,100%{transform:rotate(32deg);}50%{transform:rotate(-32deg);}}
+@keyframes rn-fa-l{0%,100%{transform:rotate(-22deg);}50%{transform:rotate(-50deg);}}
+@keyframes rn-fa-r{0%,100%{transform:rotate(22deg);}50%{transform:rotate(50deg);}}
+@keyframes rn-bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
+@keyframes rn-torso{0%,100%{transform:rotate(0deg);}50%{transform:rotate(1deg);}}
+@keyframes rn-head{0%,100%{transform:translateY(0);}50%{transform:translateY(-.8px);}}
 
 /* Demo tips list */
 .tips{list-style:none;padding:0;margin:14px 0 0;}
@@ -1141,9 +1370,12 @@ small.muted{font-size:11px;letter-spacing:.04em;}
     </div>
 
     <div class="hero fu fu1">
-      <h2 class="display">¡Hola, <span class="shimmer" id="hero-name">ATLETA</span>!</h2>
-      <p>¿Estás listo para entrenar hoy?</p>
-      <div class="streak-pill"><span class="flame">🔥</span> Racha: <strong id="hero-streak">0</strong> días</div>
+      <div class="hero-text">
+        <h2 class="display">¡Hola,<br><span class="shimmer" id="hero-name">ATLETA</span>!</h2>
+        <p>¿Estás listo para entrenar hoy?</p>
+        <div class="streak-pill"><span class="flame">🔥</span> Racha: <strong id="hero-streak">0</strong> días</div>
+      </div>
+      <div class="hero-figure" id="hero-figure"></div>
     </div>
 
     <div class="quote fu fu2" id="home-quote"></div>
@@ -1685,6 +1917,13 @@ const Demo = {
           <stop offset="50%" stop-color="#d4af37"/>
           <stop offset="100%" stop-color="#8a6418"/>
         </linearGradient>
+        <radialGradient id="rgGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="rgba(212,175,55,.5)"/>
+          <stop offset="100%" stop-color="transparent"/>
+        </radialGradient>
+        <filter id="rgSoft" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation=".3"/>
+        </filter>
       </defs>`;
   },
   ground(){ return `<line class="ground" x1="20" y1="225" x2="180" y2="225"/>`; },
@@ -1694,46 +1933,93 @@ const Demo = {
     return `<svg class="rg-figure" viewBox="0 0 200 240" data-anim="${anim}" xmlns="http://www.w3.org/2000/svg">${Demo.defs()}${inner}</svg>`;
   },
 
-  // Reusable building blocks
-  head(x=100,y=50){ return `<circle class="head" cx="${x}" cy="${y}" r="11"/>`; },
+  // === Rigging helpers — each joint is a transform-origin pivot ===
+  pivot(x,y){ return `transform-origin:${x}px ${y}px;transform-box:view-box;`; },
+
+  head(x=100,y=50){
+    return `<g class="head-grp" style="${Demo.pivot(x,y+8)}"><circle class="head" cx="${x}" cy="${y}" r="11"/></g>`;
+  },
+
+  torso(x1,y1,x2,y2,thickness=5){
+    return `<g class="torso" style="${Demo.pivot(x2,y2)}"><line class="stick" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke-width="${thickness}"/></g>`;
+  },
+
   segment(x1,y1,x2,y2,cls='stick'){ return `<line class="${cls}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`; },
   hand(x,y,r=4){ return `<circle class="hand" cx="${x}" cy="${y}" r="${r}"/>`; },
+
+  // Arm: shoulder→elbow→wrist, fully rigged
+  arm(side, sX, sY, eX, eY, wX, wY, opts={}){
+    const hand = opts.hand !== false ? Demo.hand(wX, wY, opts.handR||4) : '';
+    return `<g class="upper-arm-${side}" style="${Demo.pivot(sX,sY)}">
+      <line class="stick" x1="${sX}" y1="${sY}" x2="${eX}" y2="${eY}"/>
+      <g class="forearm-${side}" style="${Demo.pivot(eX,eY)}">
+        <line class="stick" x1="${eX}" y1="${eY}" x2="${wX}" y2="${wY}"/>
+        <g class="hand-${side}" style="${Demo.pivot(wX,wY)}">${hand}</g>
+      </g>
+    </g>`;
+  },
+
+  // Leg: hip→knee→ankle
+  leg(side, hX, hY, kX, kY, aX, aY, opts={}){
+    const foot = opts.foot !== false ? Demo.hand(aX, aY, 4) : '';
+    return `<g class="thigh-${side}" style="${Demo.pivot(hX,hY)}">
+      <line class="stick" x1="${hX}" y1="${hY}" x2="${kX}" y2="${kY}"/>
+      <g class="shin-${side}" style="${Demo.pivot(kX,kY)}">
+        <line class="stick" x1="${kX}" y1="${kY}" x2="${aX}" y2="${aY}"/>
+        <g class="foot-${side}" style="${Demo.pivot(aX,aY)}">${foot}</g>
+      </g>
+    </g>`;
+  },
+
+  // Pre-built standing rig body (consistent across most exercises)
+  standing(opts={}){
+    const headX=opts.headX||100, headY=opts.headY||50;
+    const sy=75, hipY=145;
+    return `${Demo.head(headX,headY)}
+      ${Demo.torso(100, 61, 100, hipY)}
+      ${Demo.arm('l', 100, sy, 78, 110, 78, 142)}
+      ${Demo.arm('r', 100, sy, 122, 110, 122, 142)}
+      ${Demo.leg('l', 96, hipY, 86, 195, 84, 222)}
+      ${Demo.leg('r', 104, hipY, 114, 195, 116, 222)}`;
+  },
 
   // Body parts assembled by anim
   parts:{
     default(){
-      return `${Demo.ground()}
-        <g class="body-grp">
-          ${Demo.head()}
-          ${Demo.segment(100,61,100,140)}
-          <g class="arm-l">${Demo.segment(100,75,72,135)}${Demo.hand(72,135)}</g>
-          <g class="arm-r">${Demo.segment(100,75,128,135)}${Demo.hand(128,135)}</g>
-          <g class="leg-l">${Demo.segment(100,140,86,195)}${Demo.segment(86,195,84,222)}${Demo.hand(84,222)}</g>
-          <g class="leg-r">${Demo.segment(100,140,114,195)}${Demo.segment(114,195,116,222)}${Demo.hand(116,222)}</g>
-        </g>`;
+      return `${Demo.ground()}<g class="figure-root">${Demo.standing()}</g>`;
     },
 
     press_overhead(){
       return `${Demo.ground()}
-        ${Demo.head()}
-        ${Demo.segment(100,61,100,145)}
-        <!-- shoulders to elbows (fixed) -->
-        ${Demo.segment(100,78,78,110)}
-        ${Demo.segment(100,78,122,110)}
-        <!-- forearms pivot at elbows -->
-        <g class="forearm-l">${Demo.segment(78,110,78,145)}${Demo.hand(78,148)}</g>
-        <g class="forearm-r">${Demo.segment(122,110,122,145)}${Demo.hand(122,148)}</g>
-        <!-- barbell -->
-        <g class="bar-grp">
-          <line class="bar" x1="55" y1="40" x2="145" y2="40"/>
-          <rect class="plate" x="50" y="32" width="6" height="16" rx="2"/>
-          <rect class="plate" x="144" y="32" width="6" height="16" rx="2"/>
-        </g>
-        <!-- legs -->
-        ${Demo.segment(100,145,88,195)}
-        ${Demo.segment(88,195,86,222)}${Demo.hand(86,222)}
-        ${Demo.segment(100,145,112,195)}
-        ${Demo.segment(112,195,114,222)}${Demo.hand(114,222)}`;
+        <g class="figure-root">
+          ${Demo.head()}
+          ${Demo.torso(100, 61, 100, 145)}
+          <!-- upper arms point down-out from shoulders to elbows -->
+          <g class="upper-arm-l" style="${Demo.pivot(100,75)}">
+            <line class="stick" x1="100" y1="75" x2="78" y2="110"/>
+            <g class="forearm-l" style="${Demo.pivot(78,110)}">
+              <line class="stick" x1="78" y1="110" x2="78" y2="78"/>
+              ${Demo.hand(78,76,5)}
+            </g>
+          </g>
+          <g class="upper-arm-r" style="${Demo.pivot(100,75)}">
+            <line class="stick" x1="100" y1="75" x2="122" y2="110"/>
+            <g class="forearm-r" style="${Demo.pivot(122,110)}">
+              <line class="stick" x1="122" y1="110" x2="122" y2="78"/>
+              ${Demo.hand(122,76,5)}
+            </g>
+          </g>
+          <!-- barbell starts at shoulder height -->
+          <g class="bar-grp" style="${Demo.pivot(100,40)}">
+            <line class="bar" x1="55" y1="40" x2="145" y2="40"/>
+            <rect class="plate" x="48" y="32" width="6" height="16" rx="2"/>
+            <rect class="plate" x="146" y="32" width="6" height="16" rx="2"/>
+            <rect class="plate" x="40" y="28" width="6" height="24" rx="2"/>
+            <rect class="plate" x="154" y="28" width="6" height="24" rx="2"/>
+          </g>
+          ${Demo.leg('l', 96, 145, 86, 195, 84, 222)}
+          ${Demo.leg('r', 104, 145, 114, 195, 116, 222)}
+        </g>`;
     },
 
     press_bench(){
@@ -1742,24 +2028,36 @@ const Demo = {
         <rect class="bench" x="40" y="150" width="120" height="10" rx="3"/>
         <rect class="bench" x="60" y="160" width="6" height="35"/>
         <rect class="bench" x="134" y="160" width="6" height="35"/>
-        <!-- supine figure -->
-        <circle class="head" cx="50" cy="138" r="10"/>
-        ${Demo.segment(60,140,140,140)}
-        <!-- upper arms (fixed): shoulder to elbow up -->
-        ${Demo.segment(80,140,80,124)}
-        ${Demo.segment(120,140,120,124)}
-        <!-- forearms move up/down -->
-        <g class="forearm-l">${Demo.segment(80,124,80,100)}${Demo.hand(80,98)}</g>
-        <g class="forearm-r">${Demo.segment(120,124,120,100)}${Demo.hand(120,98)}</g>
-        <!-- barbell -->
-        <g class="bar-grp">
-          <line class="bar" x1="60" y1="98" x2="140" y2="98"/>
-          <rect class="plate" x="55" y="90" width="6" height="16" rx="2"/>
-          <rect class="plate" x="139" y="90" width="6" height="16" rx="2"/>
-        </g>
-        <!-- legs -->
-        ${Demo.segment(140,140,165,160)}${Demo.segment(165,160,170,195)}${Demo.hand(170,195)}
-        ${Demo.segment(140,140,162,168)}${Demo.segment(162,168,168,200)}${Demo.hand(168,200)}`;
+        <g class="figure-root">
+          ${Demo.head(50,138)}
+          <g class="torso" style="${Demo.pivot(140,140)}">
+            <line class="stick" x1="60" y1="140" x2="140" y2="140"/>
+          </g>
+          <!-- shoulders on the bench at (80,140), (120,140). Upper arms go up to elbows -->
+          <g class="upper-arm-l" style="${Demo.pivot(80,140)}">
+            <line class="stick" x1="80" y1="140" x2="80" y2="124"/>
+            <g class="forearm-l" style="${Demo.pivot(80,124)}">
+              <line class="stick" x1="80" y1="124" x2="80" y2="100"/>
+              ${Demo.hand(80,98,4)}
+            </g>
+          </g>
+          <g class="upper-arm-r" style="${Demo.pivot(120,140)}">
+            <line class="stick" x1="120" y1="140" x2="120" y2="124"/>
+            <g class="forearm-r" style="${Demo.pivot(120,124)}">
+              <line class="stick" x1="120" y1="124" x2="120" y2="100"/>
+              ${Demo.hand(120,98,4)}
+            </g>
+          </g>
+          <!-- barbell -->
+          <g class="bar-grp" style="${Demo.pivot(100,98)}">
+            <line class="bar" x1="55" y1="98" x2="145" y2="98"/>
+            <rect class="plate" x="48" y="90" width="6" height="16" rx="2"/>
+            <rect class="plate" x="146" y="90" width="6" height="16" rx="2"/>
+          </g>
+          <!-- legs bent off the side of bench -->
+          ${Demo.leg('l', 140, 140, 165, 160, 170, 200)}
+          ${Demo.leg('r', 140, 140, 162, 168, 168, 205)}
+        </g>`;
     },
 
     flye(){
@@ -1767,12 +2065,29 @@ const Demo = {
         <rect class="bench" x="40" y="150" width="120" height="10" rx="3"/>
         <rect class="bench" x="60" y="160" width="6" height="35"/>
         <rect class="bench" x="134" y="160" width="6" height="35"/>
-        <circle class="head" cx="50" cy="138" r="10"/>
-        ${Demo.segment(60,140,140,140)}
-        <g class="arm-l">${Demo.segment(100,95,100,75)}${Demo.hand(100,72,5)}</g>
-        <g class="arm-r">${Demo.segment(100,95,100,75)}${Demo.hand(100,72,5)}</g>
-        ${Demo.segment(140,140,165,160)}${Demo.segment(165,160,170,195)}${Demo.hand(170,195)}
-        ${Demo.segment(140,140,162,168)}${Demo.segment(162,168,168,200)}${Demo.hand(168,200)}`;
+        <g class="figure-root">
+          ${Demo.head(50,138)}
+          <g class="torso" style="${Demo.pivot(140,140)}">
+            <line class="stick" x1="60" y1="140" x2="140" y2="140"/>
+          </g>
+          <!-- both arms start vertical (closed position), open outward -->
+          <g class="upper-arm-l" style="${Demo.pivot(100,140)}">
+            <line class="stick" x1="100" y1="140" x2="100" y2="100"/>
+            <g class="forearm-l" style="${Demo.pivot(100,100)}">
+              <line class="stick" x1="100" y1="100" x2="100" y2="78"/>
+              <circle class="plate" cx="100" cy="76" r="5"/>
+            </g>
+          </g>
+          <g class="upper-arm-r" style="${Demo.pivot(100,140)}">
+            <line class="stick" x1="100" y1="140" x2="100" y2="100"/>
+            <g class="forearm-r" style="${Demo.pivot(100,100)}">
+              <line class="stick" x1="100" y1="100" x2="100" y2="78"/>
+              <circle class="plate" cx="100" cy="76" r="5"/>
+            </g>
+          </g>
+          ${Demo.leg('l', 140, 140, 165, 160, 170, 200)}
+          ${Demo.leg('r', 140, 140, 162, 168, 168, 205)}
+        </g>`;
     },
 
     dip(){
@@ -1780,251 +2095,448 @@ const Demo = {
         <!-- parallel bars -->
         <line class="bar-fixed" x1="55" y1="105" x2="55" y2="160"/>
         <line class="bar-fixed" x1="145" y1="105" x2="145" y2="160"/>
-        <line class="bar-fixed" x1="50" y1="105" x2="80" y2="105"/>
-        <line class="bar-fixed" x1="120" y1="105" x2="150" y2="105"/>
-        <g class="body-grp">
+        <line class="bar-fixed" x1="40" y1="105" x2="80" y2="105"/>
+        <line class="bar-fixed" x1="120" y1="105" x2="160" y2="105"/>
+        <g class="figure-root">
           ${Demo.head()}
-          ${Demo.segment(100,61,100,140)}
-          ${Demo.segment(80,105,100,75)}
-          ${Demo.segment(120,105,100,75)}
-          ${Demo.segment(100,140,90,180)}${Demo.segment(90,180,92,200)}
-          ${Demo.segment(100,140,110,180)}${Demo.segment(110,180,108,200)}
+          ${Demo.torso(100,61,100,140)}
+          <g class="upper-arm-l" style="${Demo.pivot(100,78)}">
+            <line class="stick" x1="100" y1="78" x2="80" y2="105"/>
+            <g class="forearm-l" style="${Demo.pivot(80,105)}">
+              <line class="stick" x1="80" y1="105" x2="60" y2="100"/>
+              ${Demo.hand(60,100,5)}
+            </g>
+          </g>
+          <g class="upper-arm-r" style="${Demo.pivot(100,78)}">
+            <line class="stick" x1="100" y1="78" x2="120" y2="105"/>
+            <g class="forearm-r" style="${Demo.pivot(120,105)}">
+              <line class="stick" x1="120" y1="105" x2="140" y2="100"/>
+              ${Demo.hand(140,100,5)}
+            </g>
+          </g>
+          ${Demo.leg('l', 96, 140, 90, 175, 92, 205)}
+          ${Demo.leg('r', 104, 140, 110, 175, 108, 205)}
         </g>`;
     },
 
     curl_bicep(){
       return `${Demo.ground()}
-        ${Demo.head()}
-        ${Demo.segment(100,61,100,140)}
-        <!-- upper arms fixed -->
-        ${Demo.segment(100,78,78,135)}
-        ${Demo.segment(100,78,122,135)}
-        <!-- forearms rotate at elbows (start hanging down) -->
-        <g class="forearm-l">${Demo.segment(78,135,68,170)}<circle class="plate" cx="68" cy="173" r="6"/></g>
-        <g class="forearm-r">${Demo.segment(122,135,132,170)}<circle class="plate" cx="132" cy="173" r="6"/></g>
-        <!-- legs -->
-        ${Demo.segment(100,140,86,195)}${Demo.segment(86,195,84,222)}${Demo.hand(84,222)}
-        ${Demo.segment(100,140,114,195)}${Demo.segment(114,195,116,222)}${Demo.hand(116,222)}`;
+        <g class="figure-root">
+          ${Demo.head()}
+          ${Demo.torso(100,61,100,140)}
+          <g class="upper-arm-l" style="${Demo.pivot(100,78)}">
+            <line class="stick" x1="100" y1="78" x2="78" y2="135"/>
+            <g class="forearm-l" style="${Demo.pivot(78,135)}">
+              <line class="stick" x1="78" y1="135" x2="68" y2="170"/>
+              <circle class="plate" cx="68" cy="173" r="6"/>
+            </g>
+          </g>
+          <g class="upper-arm-r" style="${Demo.pivot(100,78)}">
+            <line class="stick" x1="100" y1="78" x2="122" y2="135"/>
+            <g class="forearm-r" style="${Demo.pivot(122,135)}">
+              <line class="stick" x1="122" y1="135" x2="132" y2="170"/>
+              <circle class="plate" cx="132" cy="173" r="6"/>
+            </g>
+          </g>
+          ${Demo.leg('l', 96, 140, 86, 195, 84, 222)}
+          ${Demo.leg('r', 104, 140, 114, 195, 116, 222)}
+        </g>`;
     },
 
     extension_tricep(){
       return `${Demo.ground()}
         <!-- cable from top -->
         <line class="cable" x1="100" y1="0" x2="100" y2="115"/>
-        ${Demo.head()}
-        ${Demo.segment(100,61,100,140)}
-        <!-- upper arms point up (fixed) -->
-        ${Demo.segment(100,78,78,115)}
-        ${Demo.segment(100,78,122,115)}
-        <!-- forearms rotate (start bent up, extend down) -->
-        <g class="forearm-l">${Demo.segment(78,115,78,150)}${Demo.hand(78,152)}</g>
-        <g class="forearm-r">${Demo.segment(122,115,122,150)}${Demo.hand(122,152)}</g>
-        ${Demo.segment(100,140,86,195)}${Demo.segment(86,195,84,222)}${Demo.hand(84,222)}
-        ${Demo.segment(100,140,114,195)}${Demo.segment(114,195,116,222)}${Demo.hand(116,222)}`;
+        <g class="figure-root">
+          ${Demo.head()}
+          ${Demo.torso(100,61,100,140)}
+          <!-- upper arms (fixed pointing slightly out & down) -->
+          <g class="upper-arm-l" style="${Demo.pivot(100,78)}">
+            <line class="stick" x1="100" y1="78" x2="78" y2="115"/>
+            <g class="forearm-l" style="${Demo.pivot(78,115)}">
+              <line class="stick" x1="78" y1="115" x2="78" y2="80"/>
+              ${Demo.hand(78,78,4)}
+            </g>
+          </g>
+          <g class="upper-arm-r" style="${Demo.pivot(100,78)}">
+            <line class="stick" x1="100" y1="78" x2="122" y2="115"/>
+            <g class="forearm-r" style="${Demo.pivot(122,115)}">
+              <line class="stick" x1="122" y1="115" x2="122" y2="80"/>
+              ${Demo.hand(122,78,4)}
+            </g>
+          </g>
+          ${Demo.leg('l', 96, 140, 86, 195, 84, 222)}
+          ${Demo.leg('r', 104, 140, 114, 195, 116, 222)}
+        </g>`;
     },
 
     pulldown(){
       return `${Demo.ground()}
-        <!-- pulldown machine -->
+        <!-- machine -->
         <line class="bar-fixed" x1="100" y1="0" x2="100" y2="30"/>
         <line class="machine" x1="85" y1="0" x2="85" y2="230"/>
         <line class="machine" x1="115" y1="0" x2="115" y2="230"/>
-        <!-- bar -->
-        <g class="bar-grp">
-          <line class="bar" x1="55" y1="40" x2="145" y2="40"/>
-        </g>
-        ${Demo.head(100,75)}
-        ${Demo.segment(100,86,100,170)}
-        <!-- arms reaching up -->
-        <g class="arm-l">${Demo.segment(100,95,75,55)}${Demo.hand(75,55)}</g>
-        <g class="arm-r">${Demo.segment(100,95,125,55)}${Demo.hand(125,55)}</g>
-        <!-- seated legs -->
-        ${Demo.segment(100,170,75,195)}${Demo.segment(75,195,75,220)}${Demo.hand(75,222)}
-        ${Demo.segment(100,170,125,195)}${Demo.segment(125,195,125,220)}${Demo.hand(125,222)}`;
+        <!-- seat -->
+        <rect class="bench" x="60" y="170" width="80" height="8" rx="3"/>
+        <g class="figure-root">
+          <g class="bar-grp" style="${Demo.pivot(100,40)}">
+            <line class="bar" x1="55" y1="40" x2="145" y2="40"/>
+          </g>
+          ${Demo.head(100,75)}
+          ${Demo.torso(100,86,100,170)}
+          <g class="upper-arm-l" style="${Demo.pivot(100,95)}">
+            <line class="stick" x1="100" y1="95" x2="75" y2="55"/>
+            <g class="forearm-l" style="${Demo.pivot(75,55)}">
+              <line class="stick" x1="75" y1="55" x2="55" y2="40"/>
+              ${Demo.hand(55,40,5)}
+            </g>
+          </g>
+          <g class="upper-arm-r" style="${Demo.pivot(100,95)}">
+            <line class="stick" x1="100" y1="95" x2="125" y2="55"/>
+            <g class="forearm-r" style="${Demo.pivot(125,55)}">
+              <line class="stick" x1="125" y1="55" x2="145" y2="40"/>
+              ${Demo.hand(145,40,5)}
+            </g>
+          </g>
+          ${Demo.leg('l', 96, 170, 75, 195, 75, 220)}
+          ${Demo.leg('r', 104, 170, 125, 195, 125, 220)}
+        </g>`;
     },
 
     pullup(){
       return `${Demo.ground()}
-        <!-- bar overhead -->
         <line class="bar-fixed" x1="40" y1="35" x2="160" y2="35"/>
         <line class="bar-fixed" x1="50" y1="0" x2="50" y2="35"/>
         <line class="bar-fixed" x1="150" y1="0" x2="150" y2="35"/>
-        <g class="body-grp">
+        <g class="figure-root">
           ${Demo.head()}
-          ${Demo.segment(100,61,100,160)}
-          ${Demo.segment(100,75,80,40)}${Demo.hand(80,38)}
-          ${Demo.segment(100,75,120,40)}${Demo.hand(120,38)}
-          ${Demo.segment(100,160,90,200)}${Demo.segment(90,200,92,220)}
-          ${Demo.segment(100,160,110,200)}${Demo.segment(110,200,108,220)}
+          ${Demo.torso(100,61,100,160)}
+          <g class="upper-arm-l" style="${Demo.pivot(100,75)}">
+            <line class="stick" x1="100" y1="75" x2="80" y2="40"/>
+            <g class="forearm-l" style="${Demo.pivot(80,40)}">
+              ${Demo.hand(80,38,5)}
+            </g>
+          </g>
+          <g class="upper-arm-r" style="${Demo.pivot(100,75)}">
+            <line class="stick" x1="100" y1="75" x2="120" y2="40"/>
+            <g class="forearm-r" style="${Demo.pivot(120,40)}">
+              ${Demo.hand(120,38,5)}
+            </g>
+          </g>
+          ${Demo.leg('l', 96, 160, 92, 198, 96, 220)}
+          ${Demo.leg('r', 104, 160, 108, 198, 104, 220)}
         </g>`;
     },
 
     row_bent(){
       return `${Demo.ground()}
-        <!-- bent torso -->
-        ${Demo.head(70,90)}
-        ${Demo.segment(75,98,140,145)}
-        <!-- upper arms from shoulder down -->
-        ${Demo.segment(88,108,88,135)}
-        ${Demo.segment(122,135,122,108)}
-        <!-- forearms move barbell up -->
-        <g class="forearm-l">${Demo.segment(88,135,88,170)}${Demo.hand(88,172)}</g>
-        <g class="forearm-r">${Demo.segment(122,135,122,170)}${Demo.hand(122,172)}</g>
-        <!-- barbell -->
-        <g class="bar-grp">
-          <line class="bar" x1="60" y1="175" x2="140" y2="175"/>
-          <rect class="plate" x="55" y="167" width="6" height="16" rx="2"/>
-          <rect class="plate" x="139" y="167" width="6" height="16" rx="2"/>
-        </g>
-        <!-- legs slightly bent -->
-        ${Demo.segment(140,145,135,195)}${Demo.segment(135,195,132,222)}${Demo.hand(132,222)}
-        ${Demo.segment(140,145,155,195)}${Demo.segment(155,195,158,222)}${Demo.hand(158,222)}`;
+        <g class="figure-root">
+          ${Demo.head(70,90)}
+          <g class="torso" style="${Demo.pivot(140,145)}">
+            <line class="stick" x1="75" y1="98" x2="140" y2="145"/>
+          </g>
+          <g class="upper-arm-l" style="${Demo.pivot(88,108)}">
+            <line class="stick" x1="88" y1="108" x2="88" y2="135"/>
+            <g class="forearm-l" style="${Demo.pivot(88,135)}">
+              <line class="stick" x1="88" y1="135" x2="88" y2="170"/>
+              ${Demo.hand(88,172,4)}
+            </g>
+          </g>
+          <g class="upper-arm-r" style="${Demo.pivot(122,108)}">
+            <line class="stick" x1="122" y1="108" x2="122" y2="135"/>
+            <g class="forearm-r" style="${Demo.pivot(122,135)}">
+              <line class="stick" x1="122" y1="135" x2="122" y2="170"/>
+              ${Demo.hand(122,172,4)}
+            </g>
+          </g>
+          <g class="bar-grp" style="${Demo.pivot(100,175)}">
+            <line class="bar" x1="60" y1="175" x2="140" y2="175"/>
+            <rect class="plate" x="55" y="167" width="6" height="16" rx="2"/>
+            <rect class="plate" x="139" y="167" width="6" height="16" rx="2"/>
+          </g>
+          ${Demo.leg('l', 135, 145, 132, 195, 130, 222)}
+          ${Demo.leg('r', 148, 145, 155, 195, 158, 222)}
+        </g>`;
     },
 
     deadlift(){
       return `${Demo.ground()}
-        <g class="body-grp">
+        <g class="figure-root" style="${Demo.pivot(100,140)}">
           ${Demo.head()}
-          ${Demo.segment(100,61,100,140)}
-          ${Demo.segment(100,78,80,140)}
-          ${Demo.segment(100,78,120,140)}
+          ${Demo.torso(100,61,100,140)}
+          <g class="upper-arm-l" style="${Demo.pivot(100,78)}">
+            <line class="stick" x1="100" y1="78" x2="80" y2="140"/>
+            <g class="forearm-l" style="${Demo.pivot(80,140)}">
+              ${Demo.hand(80,142,5)}
+            </g>
+          </g>
+          <g class="upper-arm-r" style="${Demo.pivot(100,78)}">
+            <line class="stick" x1="100" y1="78" x2="120" y2="140"/>
+            <g class="forearm-r" style="${Demo.pivot(120,140)}">
+              ${Demo.hand(120,142,5)}
+            </g>
+          </g>
+          ${Demo.leg('l', 96, 140, 86, 195, 84, 222)}
+          ${Demo.leg('r', 104, 140, 114, 195, 116, 222)}
         </g>
-        ${Demo.segment(100,140,86,195)}${Demo.segment(86,195,84,222)}
-        ${Demo.segment(100,140,114,195)}${Demo.segment(114,195,116,222)}
-        <g class="bar-grp">
-          <line class="bar" x1="55" y1="200" x2="145" y2="200"/>
-          <rect class="plate" x="50" y="190" width="6" height="20" rx="2"/>
-          <rect class="plate" x="144" y="190" width="6" height="20" rx="2"/>
+        <g class="bar-grp" style="${Demo.pivot(100,200)}">
+          <line class="bar" x1="50" y1="200" x2="150" y2="200"/>
+          <rect class="plate" x="40" y="185" width="8" height="30" rx="2"/>
+          <rect class="plate" x="152" y="185" width="8" height="30" rx="2"/>
+          <rect class="plate" x="30" y="180" width="8" height="40" rx="2"/>
+          <rect class="plate" x="162" y="180" width="8" height="40" rx="2"/>
         </g>`;
     },
 
     squat(){
       return `${Demo.ground()}
-        <g class="body-grp">
+        <g class="figure-root">
           ${Demo.head()}
-          ${Demo.segment(100,61,100,145)}
-          ${Demo.segment(100,78,78,135)}
-          ${Demo.segment(100,78,122,135)}
-          ${Demo.segment(78,135,78,165)}${Demo.hand(78,167)}
-          ${Demo.segment(122,135,122,165)}${Demo.hand(122,167)}
-        </g>
-        <!-- bar on shoulders -->
-        <g class="bar-grp" style="transform-origin:100px 75px;">
-          <line class="bar" x1="55" y1="75" x2="145" y2="75"/>
-          <rect class="plate" x="50" y="67" width="6" height="16" rx="2"/>
-          <rect class="plate" x="144" y="67" width="6" height="16" rx="2"/>
-        </g>
-        <!-- thighs pivot at hip -->
-        <g class="leg-l">
-          ${Demo.segment(96,145,80,195)}
-          <g class="shin-l">
-            ${Demo.segment(80,195,82,222)}${Demo.hand(82,222)}
+          ${Demo.torso(100,61,100,145)}
+          <!-- arms holding the bar -->
+          <g class="upper-arm-l" style="${Demo.pivot(100,78)}">
+            <line class="stick" x1="100" y1="78" x2="80" y2="78"/>
+            <g class="forearm-l" style="${Demo.pivot(80,78)}">
+              <line class="stick" x1="80" y1="78" x2="65" y2="78"/>
+              ${Demo.hand(65,78,4)}
+            </g>
           </g>
-        </g>
-        <g class="leg-r">
-          ${Demo.segment(104,145,120,195)}
-          <g class="shin-r">
-            ${Demo.segment(120,195,118,222)}${Demo.hand(118,222)}
+          <g class="upper-arm-r" style="${Demo.pivot(100,78)}">
+            <line class="stick" x1="100" y1="78" x2="120" y2="78"/>
+            <g class="forearm-r" style="${Demo.pivot(120,78)}">
+              <line class="stick" x1="120" y1="78" x2="135" y2="78"/>
+              ${Demo.hand(135,78,4)}
+            </g>
+          </g>
+          <g class="bar-grp" style="${Demo.pivot(100,75)}">
+            <line class="bar" x1="55" y1="75" x2="145" y2="75"/>
+            <rect class="plate" x="48" y="67" width="6" height="16" rx="2"/>
+            <rect class="plate" x="146" y="67" width="6" height="16" rx="2"/>
+          </g>
+          <g class="thigh-l" style="${Demo.pivot(96,145)}">
+            <line class="stick" x1="96" y1="145" x2="86" y2="195"/>
+            <g class="shin-l" style="${Demo.pivot(86,195)}">
+              <line class="stick" x1="86" y1="195" x2="84" y2="222"/>
+              ${Demo.hand(84,222,4)}
+            </g>
+          </g>
+          <g class="thigh-r" style="${Demo.pivot(104,145)}">
+            <line class="stick" x1="104" y1="145" x2="114" y2="195"/>
+            <g class="shin-r" style="${Demo.pivot(114,195)}">
+              <line class="stick" x1="114" y1="195" x2="116" y2="222"/>
+              ${Demo.hand(116,222,4)}
+            </g>
           </g>
         </g>`;
     },
 
     lateral_raise(){
       return `${Demo.ground()}
-        ${Demo.head()}
-        ${Demo.segment(100,61,100,140)}
-        <g class="arm-l">${Demo.segment(100,75,100,135)}${Demo.hand(100,138,5)}</g>
-        <g class="arm-r">${Demo.segment(100,75,100,135)}${Demo.hand(100,138,5)}</g>
-        ${Demo.segment(100,140,86,195)}${Demo.segment(86,195,84,222)}${Demo.hand(84,222)}
-        ${Demo.segment(100,140,114,195)}${Demo.segment(114,195,116,222)}${Demo.hand(116,222)}`;
+        <g class="figure-root">
+          ${Demo.head()}
+          ${Demo.torso(100,61,100,140)}
+          <g class="upper-arm-l" style="${Demo.pivot(100,78)}">
+            <line class="stick" x1="100" y1="78" x2="100" y2="135"/>
+            <g class="forearm-l" style="${Demo.pivot(100,135)}">
+              <circle class="plate" cx="100" cy="138" r="5"/>
+            </g>
+          </g>
+          <g class="upper-arm-r" style="${Demo.pivot(100,78)}">
+            <line class="stick" x1="100" y1="78" x2="100" y2="135"/>
+            <g class="forearm-r" style="${Demo.pivot(100,135)}">
+              <circle class="plate" cx="100" cy="138" r="5"/>
+            </g>
+          </g>
+          ${Demo.leg('l', 96, 140, 86, 195, 84, 222)}
+          ${Demo.leg('r', 104, 140, 114, 195, 116, 222)}
+        </g>`;
     },
 
     rear_delt_fly(){
       return `${Demo.ground()}
-        ${Demo.head(80,90)}
-        ${Demo.segment(85,98,140,150)}
-        <g class="arm-l">${Demo.segment(88,110,88,160)}${Demo.hand(88,162,5)}</g>
-        <g class="arm-r">${Demo.segment(112,118,112,168)}${Demo.hand(112,170,5)}</g>
-        ${Demo.segment(140,150,135,195)}${Demo.segment(135,195,132,222)}${Demo.hand(132,222)}
-        ${Demo.segment(140,150,155,195)}${Demo.segment(155,195,158,222)}${Demo.hand(158,222)}`;
+        <g class="figure-root">
+          ${Demo.head(80,90)}
+          <g class="torso" style="${Demo.pivot(140,150)}">
+            <line class="stick" x1="85" y1="98" x2="140" y2="150"/>
+          </g>
+          <g class="upper-arm-l" style="${Demo.pivot(88,110)}">
+            <line class="stick" x1="88" y1="110" x2="88" y2="160"/>
+            <g class="forearm-l" style="${Demo.pivot(88,160)}">
+              <circle class="plate" cx="88" cy="163" r="5"/>
+            </g>
+          </g>
+          <g class="upper-arm-r" style="${Demo.pivot(112,118)}">
+            <line class="stick" x1="112" y1="118" x2="112" y2="168"/>
+            <g class="forearm-r" style="${Demo.pivot(112,168)}">
+              <circle class="plate" cx="112" cy="171" r="5"/>
+            </g>
+          </g>
+          ${Demo.leg('l', 135, 150, 132, 195, 130, 222)}
+          ${Demo.leg('r', 148, 150, 155, 195, 158, 222)}
+        </g>`;
     },
 
     shrug(){
       return `${Demo.ground()}
-        <g class="body-grp">
+        <g class="figure-root">
           ${Demo.head()}
-          ${Demo.segment(100,61,100,145)}
-          ${Demo.segment(100,75,75,140)}<circle class="plate" cx="73" cy="143" r="6"/>
-          ${Demo.segment(100,75,125,140)}<circle class="plate" cx="127" cy="143" r="6"/>
-        </g>
-        ${Demo.segment(100,145,86,195)}${Demo.segment(86,195,84,222)}${Demo.hand(84,222)}
-        ${Demo.segment(100,145,114,195)}${Demo.segment(114,195,116,222)}${Demo.hand(116,222)}`;
+          ${Demo.torso(100,61,100,145)}
+          <g class="upper-arm-l" style="${Demo.pivot(100,75)}">
+            <line class="stick" x1="100" y1="75" x2="75" y2="140"/>
+            <g class="forearm-l" style="${Demo.pivot(75,140)}">
+              <circle class="plate" cx="73" cy="143" r="6"/>
+            </g>
+          </g>
+          <g class="upper-arm-r" style="${Demo.pivot(100,75)}">
+            <line class="stick" x1="100" y1="75" x2="125" y2="140"/>
+            <g class="forearm-r" style="${Demo.pivot(125,140)}">
+              <circle class="plate" cx="127" cy="143" r="6"/>
+            </g>
+          </g>
+          ${Demo.leg('l', 96, 145, 86, 195, 84, 222)}
+          ${Demo.leg('r', 104, 145, 114, 195, 116, 222)}
+        </g>`;
     },
 
     calf_raise(){
       return `${Demo.ground()}
-        <g class="body-grp">
+        <g class="figure-root">
           ${Demo.head()}
-          ${Demo.segment(100,61,100,140)}
-          ${Demo.segment(100,78,78,135)}${Demo.hand(78,137)}
-          ${Demo.segment(100,78,122,135)}${Demo.hand(122,137)}
-          ${Demo.segment(100,140,86,195)}${Demo.segment(86,195,82,218)}
-          ${Demo.segment(100,140,114,195)}${Demo.segment(114,195,118,218)}
+          ${Demo.torso(100,61,100,140)}
+          <g class="upper-arm-l" style="${Demo.pivot(100,78)}">
+            <line class="stick" x1="100" y1="78" x2="78" y2="135"/>
+            <g class="forearm-l" style="${Demo.pivot(78,135)}">
+              ${Demo.hand(78,137,4)}
+            </g>
+          </g>
+          <g class="upper-arm-r" style="${Demo.pivot(100,78)}">
+            <line class="stick" x1="100" y1="78" x2="122" y2="135"/>
+            <g class="forearm-r" style="${Demo.pivot(122,135)}">
+              ${Demo.hand(122,137,4)}
+            </g>
+          </g>
+          <g class="thigh-l" style="${Demo.pivot(96,140)}">
+            <line class="stick" x1="96" y1="140" x2="86" y2="195"/>
+            <g class="shin-l" style="${Demo.pivot(86,195)}">
+              <line class="stick" x1="86" y1="195" x2="82" y2="218"/>
+              ${Demo.hand(82,218,4)}
+            </g>
+          </g>
+          <g class="thigh-r" style="${Demo.pivot(104,140)}">
+            <line class="stick" x1="104" y1="140" x2="114" y2="195"/>
+            <g class="shin-r" style="${Demo.pivot(114,195)}">
+              <line class="stick" x1="114" y1="195" x2="118" y2="218"/>
+              ${Demo.hand(118,218,4)}
+            </g>
+          </g>
         </g>`;
     },
 
     crunch(){
       return `${Demo.ground()}
-        <!-- mat -->
         <rect class="bench" x="30" y="178" width="140" height="6" rx="3"/>
-        <!-- legs (knees bent) -->
-        ${Demo.segment(100,165,75,150)}${Demo.segment(75,150,55,178)}${Demo.hand(55,178)}
-        ${Demo.segment(100,165,125,150)}${Demo.segment(125,150,145,178)}${Demo.hand(145,178)}
-        <!-- torso curls up -->
-        <g class="torso-up">
-          ${Demo.head(100,150)}
-          ${Demo.segment(100,160,100,165)}
+        <g class="figure-root">
+          <!-- knees bent -->
+          ${Demo.leg('l', 100, 165, 75, 150, 55, 178)}
+          ${Demo.leg('r', 100, 165, 125, 150, 145, 178)}
+          <!-- torso curls up: pivots at hip (100, 165) -->
+          <g class="torso-up" style="${Demo.pivot(100,165)}">
+            ${Demo.head(100,150)}
+            <line class="stick" x1="100" y1="160" x2="100" y2="165"/>
+            <!-- arms folded across chest -->
+            <line class="stick" x1="90" y1="158" x2="105" y2="158"/>
+            <line class="stick" x1="110" y1="158" x2="95" y2="158"/>
+          </g>
         </g>`;
     },
 
     leg_raise(){
       return `${Demo.ground()}
         <rect class="bench" x="30" y="135" width="140" height="6" rx="3"/>
-        ${Demo.head(50,128)}
-        ${Demo.segment(60,130,100,130)}
-        <!-- arms by sides -->
-        ${Demo.segment(70,132,60,148)}${Demo.hand(60,150)}
-        ${Demo.segment(85,132,80,148)}${Demo.hand(80,150)}
-        <g class="leg-grp">
-          ${Demo.segment(100,130,150,135)}${Demo.segment(150,135,175,140)}${Demo.hand(175,140)}
+        <g class="figure-root">
+          ${Demo.head(50,128)}
+          ${Demo.torso(60,130,100,130)}
+          <!-- arms by sides -->
+          <g class="upper-arm-l" style="${Demo.pivot(70,132)}">
+            <line class="stick" x1="70" y1="132" x2="60" y2="148"/>
+            ${Demo.hand(60,150,4)}
+          </g>
+          <g class="upper-arm-r" style="${Demo.pivot(85,132)}">
+            <line class="stick" x1="85" y1="132" x2="80" y2="148"/>
+            ${Demo.hand(80,150,4)}
+          </g>
+          <!-- legs pivot at hip (100,130) -->
+          <g class="leg-grp" style="${Demo.pivot(100,130)}">
+            <line class="stick" x1="100" y1="130" x2="150" y2="135"/>
+            <line class="stick" x1="150" y1="135" x2="175" y2="140"/>
+            ${Demo.hand(175,140,4)}
+          </g>
         </g>`;
     },
 
     plank(){
       return `${Demo.ground()}
-        <g class="body-grp">
+        <g class="figure-root">
           ${Demo.head(60,150)}
-          ${Demo.segment(70,152,160,158)}
-          <!-- forearm supports -->
-          ${Demo.segment(70,152,55,180)}${Demo.hand(55,182)}
-          ${Demo.segment(55,180,75,180)}
-          <!-- legs -->
-          ${Demo.segment(160,158,170,180)}${Demo.segment(170,180,175,200)}${Demo.hand(175,200)}
+          <g class="torso" style="${Demo.pivot(160,158)}">
+            <line class="stick" x1="70" y1="152" x2="160" y2="158"/>
+          </g>
+          <g class="upper-arm-l" style="${Demo.pivot(70,152)}">
+            <line class="stick" x1="70" y1="152" x2="55" y2="180"/>
+            <g class="forearm-l" style="${Demo.pivot(55,180)}">
+              <line class="stick" x1="55" y1="180" x2="75" y2="180"/>
+              ${Demo.hand(75,180,4)}
+            </g>
+          </g>
+          <g class="upper-arm-r" style="${Demo.pivot(80,154)}">
+            <line class="stick" x1="80" y1="154" x2="80" y2="180"/>
+            <g class="forearm-r" style="${Demo.pivot(80,180)}">
+              <line class="stick" x1="80" y1="180" x2="100" y2="180"/>
+              ${Demo.hand(100,180,4)}
+            </g>
+          </g>
+          ${Demo.leg('l', 158, 158, 168, 178, 174, 198)}
+          ${Demo.leg('r', 162, 160, 172, 182, 178, 202)}
         </g>`;
     },
 
     cardio_run(){
       return `${Demo.ground()}
-        <!-- treadmill -->
         <rect class="bench" x="30" y="215" width="140" height="8" rx="3"/>
-        <g class="body-grp">
+        <g class="figure-root">
           ${Demo.head()}
-          ${Demo.segment(100,61,100,140)}
-        </g>
-        <g class="arm-l">${Demo.segment(100,80,90,125)}${Demo.hand(90,127)}</g>
-        <g class="arm-r">${Demo.segment(100,80,110,125)}${Demo.hand(110,127)}</g>
-        <g class="leg-l">${Demo.segment(100,140,90,195)}${Demo.segment(90,195,86,215)}${Demo.hand(86,215)}</g>
-        <g class="leg-r">${Demo.segment(100,140,110,195)}${Demo.segment(110,195,114,215)}${Demo.hand(114,215)}</g>`;
+          <g class="torso" style="${Demo.pivot(100,140)}">
+            <line class="stick" x1="100" y1="61" x2="100" y2="140"/>
+          </g>
+          <g class="upper-arm-l" style="${Demo.pivot(100,80)}">
+            <line class="stick" x1="100" y1="80" x2="90" y2="115"/>
+            <g class="forearm-l" style="${Demo.pivot(90,115)}">
+              <line class="stick" x1="90" y1="115" x2="85" y2="135"/>
+              ${Demo.hand(85,135,4)}
+            </g>
+          </g>
+          <g class="upper-arm-r" style="${Demo.pivot(100,80)}">
+            <line class="stick" x1="100" y1="80" x2="110" y2="115"/>
+            <g class="forearm-r" style="${Demo.pivot(110,115)}">
+              <line class="stick" x1="110" y1="115" x2="115" y2="135"/>
+              ${Demo.hand(115,135,4)}
+            </g>
+          </g>
+          <g class="thigh-l" style="${Demo.pivot(100,140)}">
+            <line class="stick" x1="100" y1="140" x2="90" y2="180"/>
+            <g class="shin-l" style="${Demo.pivot(90,180)}">
+              <line class="stick" x1="90" y1="180" x2="86" y2="210"/>
+              ${Demo.hand(86,210,4)}
+            </g>
+          </g>
+          <g class="thigh-r" style="${Demo.pivot(100,140)}">
+            <line class="stick" x1="100" y1="140" x2="110" y2="180"/>
+            <g class="shin-r" style="${Demo.pivot(110,180)}">
+              <line class="stick" x1="110" y1="180" x2="114" y2="210"/>
+              ${Demo.hand(114,210,4)}
+            </g>
+          </g>
+        </g>`;
     }
   },
 
@@ -2290,6 +2802,7 @@ const App = {
     $('#hero-name').textContent = u.nombre.split(' ')[0].toUpperCase();
     $('#hero-streak').textContent = u.streak || 0;
     $('#home-quote').textContent = pick(QUOTES);
+    this.startHeroCarousel();
 
     const total = u.workouts.length;
     const weekCount = u.workouts.filter(w => daysBetween(w.date, todayISO()) < 7).length;
@@ -2315,6 +2828,22 @@ const App = {
 
     // admin shortcut hidden for non-admin (admin sees its own view)
     $('#admin-shortcut').style.display = u.isAdmin ? 'block' : 'none';
+  },
+
+  startHeroCarousel(){
+    const host = $('#hero-figure');
+    if(!host) return;
+    const featured = ['press_overhead','squat','curl_bicep','deadlift','pullup','press_bench','cardio_run'];
+    let i = Math.floor(Math.random()*featured.length);
+    const render = () => { host.innerHTML = Demo.svg(featured[i]); };
+    render();
+    clearInterval(this._heroIv);
+    this._heroIv = setInterval(() => {
+      i = (i + 1) % featured.length;
+      host.style.opacity = '0';
+      setTimeout(() => { render(); host.style.opacity = '1'; }, 280);
+    }, 4500);
+    host.style.transition = 'opacity .35s ease';
   },
 
   routineSub(r){
